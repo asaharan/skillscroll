@@ -1,0 +1,266 @@
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-black/lato-black.eot");
+  src: local("Lato Black"), local("Lato-Black"), url("../components/lato/font/lato-black/lato-black.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-black/lato-black.woff2") format("woff2"), url("../components/lato/font/lato-black/lato-black.woff") format("woff"), url("../components/lato/font/lato-black/lato-black.ttf") format("truetype"), url("../components/lato/font/lato-black/lato-black.svg#lato") format("svg");
+  font-weight: 900;
+  font-style: normal; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-blackitalic/lato-blackitalic.eot");
+  src: local("Lato Black Italic"), local("Lato-BlackItalic"), url("../components/lato/font/lato-blackitalic/lato-blackitalic.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-blackitalic/lato-blackitalic.woff2") format("woff2"), url("../components/lato/font/lato-blackitalic/lato-blackitalic.woff") format("woff"), url("../components/lato/font/lato-blackitalic/lato-blackitalic.ttf") format("truetype"), url("../components/lato/font/lato-blackitalic/lato-blackitalic.svg#lato") format("svg");
+  font-weight: 900;
+  font-style: italic; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-heavy/lato-heavy.eot");
+  src: local("Lato Heavy"), local("Lato-Heavy"), url("../components/lato/font/lato-heavy/lato-heavy.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-heavy/lato-heavy.woff2") format("woff2"), url("../components/lato/font/lato-heavy/lato-heavy.woff") format("woff"), url("../components/lato/font/lato-heavy/lato-heavy.ttf") format("truetype"), url("../components/lato/font/lato-heavy/lato-heavy.svg#lato") format("svg");
+  font-weight: 800;
+  font-style: normal; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-heavyitalic/lato-heavyitalic.eot");
+  src: local("Lato Heavy Italic"), local("Lato-HeavyItalic"), url("../components/lato/font/lato-heavyitalic/lato-heavyitalic.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-heavyitalic/lato-heavyitalic.woff2") format("woff2"), url("../components/lato/font/lato-heavyitalic/lato-heavyitalic.woff") format("woff"), url("../components/lato/font/lato-heavyitalic/lato-heavyitalic.ttf") format("truetype"), url("../components/lato/font/lato-heavyitalic/lato-heavyitalic.svg#lato") format("svg");
+  font-weight: 800;
+  font-style: italic; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-bold/lato-bold.eot");
+  src: local("Lato Bold"), local("Lato-Bold"), url("../components/lato/font/lato-bold/lato-bold.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-bold/lato-bold.woff2") format("woff2"), url("../components/lato/font/lato-bold/lato-bold.woff") format("woff"), url("../components/lato/font/lato-bold/lato-bold.ttf") format("truetype"), url("../components/lato/font/lato-bold/lato-bold.svg#lato") format("svg");
+  font-weight: 700;
+  font-style: normal; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-bolditalic/lato-bolditalic.eot");
+  src: local("Lato Bold Italic"), local("Lato-BoldItalic"), url("../components/lato/font/lato-bolditalic/lato-bolditalic.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-bolditalic/lato-bolditalic.woff2") format("woff2"), url("../components/lato/font/lato-bolditalic/lato-bolditalic.woff") format("woff"), url("../components/lato/font/lato-bolditalic/lato-bolditalic.ttf") format("truetype"), url("../components/lato/font/lato-bolditalic/lato-bolditalic.svg#lato") format("svg");
+  font-weight: 700;
+  font-style: italic; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-semibold/lato-semibold.eot");
+  src: local("Lato Semi Bold"), local("Lato-SemiBold"), url("../components/lato/font/lato-semibold/lato-semibold.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-semibold/lato-semibold.woff2") format("woff2"), url("../components/lato/font/lato-semibold/lato-semibold.woff") format("woff"), url("../components/lato/font/lato-semibold/lato-semibold.ttf") format("truetype"), url("../components/lato/font/lato-semibold/lato-semibold.svg#lato") format("svg");
+  font-weight: 600;
+  font-style: normal; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-semibolditalic/lato-semibolditalic.eot");
+  src: local("Lato Semi Bold Italic"), local("Lato-SemiBold Italic"), url("../components/lato/font/lato-semibolditalic/lato-semibolditalic.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-semibolditalic/lato-semibolditalic.woff2") format("woff2"), url("../components/lato/font/lato-semibolditalic/lato-semibolditalic.woff") format("woff"), url("../components/lato/font/lato-semibolditalic/lato-semibolditalic.ttf") format("truetype"), url("../components/lato/font/lato-semibolditalic/lato-semibolditalic.svg#lato") format("svg");
+  font-weight: 600;
+  font-style: italic; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-medium/lato-medium.eot");
+  src: local("Lato Medium"), local("Lato-Medium"), url("../components/lato/font/lato-medium/lato-medium.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-medium/lato-medium.woff2") format("woff2"), url("../components/lato/font/lato-medium/lato-medium.woff") format("woff"), url("../components/lato/font/lato-medium/lato-medium.ttf") format("truetype"), url("../components/lato/font/lato-medium/lato-medium.svg#lato") format("svg");
+  font-weight: 500;
+  font-style: normal; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-mediumitalic/lato-mediumitalic.eot");
+  src: local("Lato Medium Italic"), local("Lato-MediumItalic"), url("../components/lato/font/lato-mediumitalic/lato-mediumitalic.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-mediumitalic/lato-mediumitalic.woff2") format("woff2"), url("../components/lato/font/lato-mediumitalic/lato-mediumitalic.woff") format("woff"), url("../components/lato/font/lato-mediumitalic/lato-mediumitalic.ttf") format("truetype"), url("../components/lato/font/lato-mediumitalic/lato-mediumitalic.svg#lato") format("svg");
+  font-weight: 500;
+  font-style: italic; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-regular/lato-regular.eot");
+  src: local("Lato Regular"), local("Lato-Regular"), url("../components/lato/font/lato-regular/lato-regular.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-regular/lato-regular.woff2") format("woff2"), url("../components/lato/font/lato-regular/lato-regular.woff") format("woff"), url("../components/lato/font/lato-regular/lato-regular.ttf") format("truetype"), url("../components/lato/font/lato-regular/lato-regular.svg#lato") format("svg");
+  font-weight: 400;
+  font-style: normal; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-italic/lato-italic.eot");
+  src: local("Lato Italic"), local("Lato-Italic"), url("../components/lato/font/lato-italic/lato-italic.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-italic/lato-italic.woff2") format("woff2"), url("../components/lato/font/lato-italic/lato-italic.woff") format("woff"), url("../components/lato/font/lato-italic/lato-italic.ttf") format("truetype"), url("../components/lato/font/lato-italic/lato-italic.svg#lato") format("svg");
+  font-weight: 400;
+  font-style: italic; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-light/lato-light.eot");
+  src: local("Lato Light"), local("Lato-Light"), url("../components/lato/font/lato-light/lato-light.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-light/lato-light.woff2") format("woff2"), url("../components/lato/font/lato-light/lato-light.woff") format("woff"), url("../components/lato/font/lato-light/lato-light.ttf") format("truetype"), url("../components/lato/font/lato-light/lato-light.svg#lato") format("svg");
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-lightitalic/lato-lightitalic.eot");
+  src: local("Lato Light Italic"), local("Lato-LightItalic"), url("../components/lato/font/lato-lightitalic/lato-lightitalic.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-lightitalic/lato-lightitalic.woff2") format("woff2"), url("../components/lato/font/lato-lightitalic/lato-lightitalic.woff") format("woff"), url("../components/lato/font/lato-lightitalic/lato-lightitalic.ttf") format("truetype"), url("../components/lato/font/lato-lightitalic/lato-lightitalic.svg#lato") format("svg");
+  font-weight: 300;
+  font-style: italic; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-thin/lato-thin.eot");
+  src: local("Lato Thin"), local("Lato-Thin"), url("../components/lato/font/lato-thin/lato-thin.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-thin/lato-thin.woff2") format("woff2"), url("../components/lato/font/lato-thin/lato-thin.woff") format("woff"), url("../components/lato/font/lato-thin/lato-thin.ttf") format("truetype"), url("../components/lato/font/lato-thin/lato-thin.svg#lato") format("svg");
+  font-weight: 200;
+  font-style: normal; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-thinitalic/lato-thinitalic.eot");
+  src: local("Lato Thin Italic"), local("Lato-ThinItalic"), url("../components/lato/font/lato-thinitalic/lato-thinitalic.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-thinitalic/lato-thinitalic.woff2") format("woff2"), url("../components/lato/font/lato-thinitalic/lato-thinitalic.woff") format("woff"), url("../components/lato/font/lato-thinitalic/lato-thinitalic.ttf") format("truetype"), url("../components/lato/font/lato-thinitalic/lato-thinitalic.svg#lato") format("svg");
+  font-weight: 200;
+  font-style: italic; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-hairline/lato-hairline.eot");
+  src: local("Lato Hairline"), local("Lato-Hairline"), url("../components/lato/font/lato-hairline/lato-hairline.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-hairline/lato-hairline.woff2") format("woff2"), url("../components/lato/font/lato-hairline/lato-hairline.woff") format("woff"), url("../components/lato/font/lato-hairline/lato-hairline.ttf") format("truetype"), url("../components/lato/font/lato-hairline/lato-hairline.svg#lato") format("svg");
+  font-weight: 100;
+  font-style: normal; }
+@font-face {
+  font-family: 'Lato';
+  src: url("../components/lato/font/lato-hairlineitalic/lato-hairlineitalic.eot");
+  src: local("Lato Hairline Italic"), local("Lato-HairlineItalic"), url("../components/lato/font/lato-hairlineitalic/lato-hairlineitalic.eot?#iefix") format("embedded-opentype"), url("../components/lato/font/lato-hairlineitalic/lato-hairlineitalic.woff2") format("woff2"), url("../components/lato/font/lato-hairlineitalic/lato-hairlineitalic.woff") format("woff"), url("../components/lato/font/lato-hairlineitalic/lato-hairlineitalic.ttf") format("truetype"), url("../components/lato/font/lato-hairlineitalic/lato-hairlineitalic.svg#lato") format("svg");
+  font-weight: 100;
+  font-style: italic; }
+* {
+  box-sizing: border-box; }
+
+html {
+  min-width: 1000px; }
+
+body {
+  margin: 0;
+  background-color: #e5e5e5;
+  color: #505050;
+  font-family: lato;
+  text-align: center;
+  min-width: 1000px; }
+
+a {
+  text-decoration: none; }
+
+.topbar {
+  background-color: #fff;
+  color: #b4b4b4;
+  position: fixed;
+  height: 45px;
+  width: 100%;
+  line-height: 45px;
+  z-index: 10; }
+  @media (max-width: 1000px) {
+    .topbar {
+      width: 1000px;
+      position: relative; } }
+  .topbar .brand {
+    position: relative;
+    float: left;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 0 10px; }
+    .topbar .brand .skill {
+      color: #28bfd1; }
+    .topbar .brand .scroll {
+      color: #a09f9f; }
+  .topbar .swp {
+    float: left;
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+    width: calc(100% - 324px);
+    height: inherit;
+    padding: 0 10px;
+    text-align: center; }
+    .topbar .swp .main-form {
+      position: relative;
+      padding-top: 7px;
+      height: inherit; }
+      .topbar .swp .main-form .main-input {
+        outline: none;
+        float: left;
+        display: inline-block;
+        width: 90%;
+        min-width: 200px;
+        max-width: 450px;
+        padding: 0 10px;
+        font-family: lato;
+        height: 30px;
+        border: solid 1px #E0D8D8;
+        border-radius: 3px; }
+  .topbar .uac {
+    position: relative;
+    float: left;
+    text-align: right;
+    width: 200px;
+    padding: 6px 10px 7px 0;
+    line-height: 32px; }
+    .topbar .uac .login {
+      position: relative;
+      display: inline-block;
+      height: 30px;
+      color: #ec6930;
+      border: solid 1px #ec6930;
+      padding: 0 10px;
+      border-radius: 3px;
+      height: 100%;
+      cursor: pointer; }
+
+ng-view {
+  padding-top: 50px;
+  position: relative;
+  width: 960px;
+  margin: auto;
+  display: inline-block;
+  text-align: left; }
+  @media (max-width: 1000px) {
+    ng-view {
+      padding-top: 5px; } }
+
+.results {
+  position: relative;
+  margin-top: 10px;
+  position: relative; }
+
+.peopledryft {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 8px 0 10px 10px;
+  width: 310px;
+  border: solid 1px transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  float: left; }
+  .peopledryft:nth-child(3n+2) {
+    margin-left: 15px;
+    margin-right: 15px; }
+  .peopledryft .name {
+    text-decoration: none;
+    display: inline-block;
+    color: #323232;
+    transition: all ease 0.3s;
+    padding-right: 10px; }
+    .peopledryft .name:hover {
+      text-decoration: underline; }
+  .peopledryft .topic-dryft {
+    position: relative; }
+    .peopledryft .topic-dryft .topic {
+      font-size: 14px;
+      position: relative;
+      height: 30px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      color: #5a5a5a;
+      text-decoration: none;
+      transition: all ease 0.4s; }
+      .peopledryft .topic-dryft .topic:hover {
+        color: #30C4D7; }
+        .peopledryft .topic-dryft .topic:hover:after {
+          background-color: #30C4D7; }
+      .peopledryft .topic-dryft .topic:after {
+        content: ' ';
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 0;
+        height: 2px;
+        background-color: #5a5a5a;
+        transition: all ease 0.4s; }
+      .peopledryft .topic-dryft .topic.level1:after {
+        width: 20%; }
+      .peopledryft .topic-dryft .topic.level2:after {
+        width: 40%; }
+      .peopledryft .topic-dryft .topic.level3:after {
+        width: 60%; }
+      .peopledryft .topic-dryft .topic.level4:after {
+        width: 80%; }
+      .peopledryft .topic-dryft .topic.level5:after {
+        width: 100%; }
+
+/*# sourceMappingURL=style.css.map */

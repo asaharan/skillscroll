@@ -1,0 +1,8 @@
+<div class="results">
+<div class="peopledryft" ng-repeat="person in people">
+	<a ng-href="users/{{person.name}}" class="name">{{person.name}}</a>
+	<div class="topic-dryft">
+		<a class="topic level{{topicSet.level}}" ng-href="search?q={{topicSet.topic}}" ng-repeat="topicSet in person.topics">{{topicSet.topic}}</a>
+	</div>
+</div>
+</div>

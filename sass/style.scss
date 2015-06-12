@@ -1,0 +1,199 @@
+$bgColor:rgb(229,229,229);
+$mainColor:rgb(80,80,80);
+$themeColor:#fff;
+$themeTextColor:rgb(180,180,180);
+$skillColor:rgb(40, 191, 209);
+$scrollColor:rgb(160, 159, 159);
+
+$inputHeight:30px;
+$InputBorderColor:#E0D8D8;
+$lato-font-path: '../components/lato/font';
+
+
+$brandWidth:120px;
+$rightWidth:200px;
+
+$pinkColor:rgb(236, 105, 48);
+
+@import "../components/lato/scss/lato";
+*{
+	box-sizing: border-box;
+}
+html{
+	min-width:1000px;
+}
+body{
+	margin:0;
+	background-color:$bgColor;
+	color:$mainColor;
+	font-family:lato;
+	text-align:center;
+	min-width:1000px;
+}
+a{
+	text-decoration:none;
+}
+.topbar{
+
+	@media(max-width:1000px){
+		width: 1000px;
+		position: relative;
+	}
+	background-color:$themeColor;
+	color:$themeTextColor;
+	position: fixed;
+	height:45px;
+	width:100%;
+	line-height:45px;
+	z-index: 10;
+	.brand{
+		position: relative;
+		float: left;
+		display: inline-block;
+		font-size: 22px;
+		font-weight: bold;
+		padding: 0 10px;
+		.skill{
+			color: $skillColor;
+		}
+		.scroll{
+			color: $scrollColor;
+		}
+	}
+	.swp{
+		float: left;
+		display: inline-block;
+		position:relative;
+		margin-left: 10px;
+		width:calc(100% - #{$brandWidth+$rightWidth + 4px});
+		height: inherit;
+		padding:0 10px;
+		text-align: center;
+		.main-form{
+			position:relative;
+			padding-top:7px;
+			height: inherit;
+			.main-input{
+				outline: none;
+				float: left;
+				display: inline-block;
+				width: 90%;
+				min-width: 200px;
+				max-width: 450px;
+				padding: 0 10px;
+				font-family: lato;
+				height: $inputHeight;
+				border:solid 1px $InputBorderColor;
+				border-radius:3px;
+			}
+		}
+	}
+	.uac{
+		position:relative;
+		float: left;
+		text-align: right;
+		width: $rightWidth;
+		padding:6px 10px 7px 0;
+		line-height: 32px;
+		.login{
+			position:relative;
+			display: inline-block;
+			height: $inputHeight;
+			color: $pinkColor;
+			border:solid 1px $pinkColor;
+			padding:0 10px;
+			border-radius:3px;
+			height: 100%;
+			cursor: pointer;
+		}
+	}
+}
+ng-view{
+	@media(max-width:1000px){
+		padding-top:5px;
+	}
+	padding-top:50px;
+	position: relative;
+	width:960px;
+	margin:auto;
+	display:inline-block;
+	text-align:left;
+}
+.results{
+	position:relative;
+	margin-top:10px;
+	position: relative;
+}
+$ratingColor:#30C4D7;
+$textColor:rgb(90,90,90);
+.peopledryft{
+	overflow:hidden;
+	position:relative;
+	display:inline-block;
+	background-color:#fff;
+	border-radius:3px;
+	padding:8px 0 10px 10px;
+	width:310px;
+	border:solid 1px transparent;
+	box-shadow:0 2px 8px rgba(0,0,0,0.2);
+	margin-bottom:15px;
+	float: left;
+	&:nth-child(3n+2){
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+	.name{
+		text-decoration: none;
+		display: inline-block;
+		color: rgb(50,50,50);
+		transition: all ease 0.3s;
+		padding-right:10px;
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+	.topic-dryft{
+		position: relative;
+		.topic{
+			font-size: 14px;
+			position: relative;
+			height: 30px;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			color: $textColor;
+			text-decoration: none;
+			transition: all ease 0.4s;
+			&:hover{
+				color: $ratingColor;
+				&:after{
+					background-color:$ratingColor;
+				}
+			}
+			&:after{
+				content: ' ';
+				position:absolute;
+				left: 0;
+				bottom:-1px;
+				width: 0;
+				height: 2px;
+				background-color:$textColor;
+				transition: all ease 0.4s;
+			}
+			&.level1:after{
+				width: 20%;
+			}
+			&.level2:after{
+				width: 40%;
+			}
+			&.level3:after{
+				width: 60%;
+			}
+			&.level4:after{
+				width: 80%;
+			}
+			&.level5:after{
+				width: 100%;
+			}
+		}
+	}
+}

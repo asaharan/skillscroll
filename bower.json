@@ -1,0 +1,28 @@
+{
+  "name": "SkillScroll",
+  "version": "1.1",
+  "homepage": "https://github.com/asaharan/skillscroll",
+  "authors": [
+    "Amit Saharan <asaharan812@gmail.com>"
+  ],
+  "description": "A platform to share your skills",
+  "main": "index.php",
+  "keywords": [
+    "SkillScroll",
+    "share",
+    "skill",
+    "iit",
+    "kanpur"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lato": "~0.3.0"
+  }
+}
