@@ -23,6 +23,10 @@
     "tests"
   ],
   "dependencies": {
-    "lato": "~0.3.0"
+    "lato": "~0.3.0",
+    "fontawesome": "~4.3.0"
+  },
+  "resolutions": {
+    "angular-material": "0.9.8"
   }
 }

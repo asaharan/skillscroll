@@ -3,7 +3,7 @@
 *
 * Description
 */
-var scroll=angular.module('scroll', ['ngRoute']);
+var scroll=angular.module('scroll', ['ngRoute','ngAria','ngAnimate','ngMaterial']);
 
 
 scroll.config(['$locationProvider','$httpProvider', function($locationProvider,$httpProvider) {

@@ -1,0 +1,51 @@
+<md-dialog flex="60" aria-label="Sign Up">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Sign Up</h2>
+    </div>
+  </md-toolbar>
+
+
+
+  <md-dialog-content layout="column">
+    <md-content>
+      <div>
+        If your mail is amit@iitk.ac.in then write amit. We will you sent you an email for confirmation
+      </div>
+      <md-input-container flex md-no-float>
+        <input placeholder="Enter your username" ng-model="user.username">
+      </md-input-container>
+
+      <md-input-container flex md-no-float>
+        <input placeholder="Full Name" ng-model="user.name">
+      </md-input-container>
+
+      <md-input-container flex md-no-float>
+        <input placeholder="phone" ng-model="user.phone">
+      </md-input-container>
+
+      <md-input-container flex md-no-float>
+        <input placeholder="Facebook username" ng-model="user.facebook">
+      </md-input-container>
+    </md-content>
+    <md-button ng-click="signup()" class="md-primary md-raised" style="margin:0" flex flex-md="100">
+          Sign Up
+    </md-button>
+  </md-dialog-content>
+
+
+
+  <div class="md-actions" layout="row">
+    <md-button ng-click="startRecovery()" class="md-primary">
+     Forgot Password
+    </md-button>
+    <md-button ng-click="startLogin()" class="md-primary">
+      Login
+    </md-button>
+    <md-button ng-click="cancel()" class="md-primary">
+      Cancel
+    </md-button>
+  </div>
+  </form>
+</md-dialog>

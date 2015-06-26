@@ -1,3 +1,8 @@
+$fa-font-path: "../components/fontawesome/fonts";
+@import "../components/fontawesome/scss/font-awesome";
+$lato-font-path: '../components/lato/font';
+@import "../components/lato/scss/lato";
+
 $bgColor:rgb(229,229,229);
 $mainColor:rgb(80,80,80);
 $themeColor:#fff;
@@ -7,36 +12,38 @@ $scrollColor:rgb(160, 159, 159);
 
 $inputHeight:30px;
 $InputBorderColor:#E0D8D8;
-$lato-font-path: '../components/lato/font';
-
 
 $brandWidth:120px;
 $rightWidth:200px;
 
 $pinkColor:rgb(236, 105, 48);
 
-@import "../components/lato/scss/lato";
-*{
+$maxWidth:960px;;
+
+*,*:after{
 	box-sizing: border-box;
 }
+$borderColor:rgb(221,221,221);
+.bordered{
+	border:solid 1px $borderColor;
+}
 html{
-	min-width:1000px;
+	min-width:$maxWidth;
 }
 body{
 	margin:0;
 	background-color:$bgColor;
 	color:$mainColor;
 	font-family:lato;
-	text-align:center;
-	min-width:1000px;
+	min-width:$maxWidth;
 }
 a{
 	text-decoration:none;
 }
 .topbar{
 
-	@media(max-width:1000px){
-		width: 1000px;
+	@media(max-width:$maxWidth){
+		width: $maxWidth;
 		position: relative;
 	}
 	background-color:$themeColor;
@@ -46,6 +53,7 @@ a{
 	width:100%;
 	line-height:45px;
 	z-index: 10;
+	box-shadow:0 1px 2px 1px rgba(0,0,0,0.2);
 	.brand{
 		position: relative;
 		float: left;
@@ -72,6 +80,10 @@ a{
 		.main-form{
 			position:relative;
 			padding-top:7px;
+			@media(max-width:$maxWidth){
+				margin-left: 0;
+			}
+			margin-left: 68px;
 			height: inherit;
 			.main-input{
 				outline: none;
@@ -100,23 +112,32 @@ a{
 			display: inline-block;
 			height: $inputHeight;
 			color: $pinkColor;
-			border:solid 1px $pinkColor;
+			border:solid 1px;
 			padding:0 10px;
 			border-radius:3px;
 			height: 100%;
 			cursor: pointer;
+			outline: none;
+		}
+		.signup{
+			@extend .login;
+			color: rgb(24, 118, 232);
+		}
+		a{
+			color:rgb(75,80,90);
+			padding:5px 10px;
 		}
 	}
 }
 ng-view{
-	@media(max-width:1000px){
+	@media(max-width:$maxWidth){
 		padding-top:5px;
 	}
 	padding-top:50px;
+	width:$maxWidth;
 	position: relative;
-	width:960px;
+	display:block;
 	margin:auto;
-	display:inline-block;
 	text-align:left;
 }
 .results{
@@ -195,5 +216,50 @@ $textColor:rgb(90,90,90);
 				width: 100%;
 			}
 		}
+	}
+}
+
+.intro{
+	position: relative;
+	text-align:center;
+	background-color:#fdfdfd;
+	margin:7px 0;
+	padding-top:10px;
+	@extend .bordered;
+	a{
+		display: inline-block;
+		width: 200px;
+		height: 70px;
+	}
+	.icon{
+		font-size: 26px;
+	}
+	.iconic{
+		border: solid 2px;
+		border-radius: 50%;
+	}
+	.first{
+		position: absolute;
+		left: 194px;
+		top: 31px;
+		width: 162px;
+		height: 2px;
+		background: linear-gradient(to right,rgb(255, 102, 102), rgb(141, 103, 179));
+	}
+	.second{
+		position: absolute;
+		left: 397px;
+		top: 31px;
+		width: 163px;
+		height: 2px;
+		background: linear-gradient(to right,rgb(141, 103, 179), #FFCC00);	
+	}
+	.third{
+		position: absolute;
+		left: 601px;
+		top: 31px;
+		width: 163px;
+		height: 2px;
+		background: linear-gradient(to right, #FFCC00,#1876E8);		
 	}
 }

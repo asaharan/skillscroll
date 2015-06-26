@@ -1,0 +1,37 @@
+<md-dialog aria-label="Sign Up">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Sign Up</h2>
+    </div>
+  </md-toolbar>
+
+
+
+  <md-dialog-content layout="column">
+    <md-content layout-padding>
+        If your mail is amit@iitk.ac.in then write amit.
+    </md-content>
+    <md-input-container flex md-no-float>
+      <input placeholder="Enter your username" ng-model="user.email">
+    </md-input-container>
+    <md-button ng-click="signup()" class="md-primary md-raised" style="margin:0" flex flex-md="100">
+          Reset password
+    </md-button>
+  </md-dialog-content>
+
+
+
+  <div class="md-actions" layout="row">
+    <md-button ng-click="startSignup()" class="md-primary">
+     SignUp
+    </md-button>
+    <md-button ng-click="startLogin()" class="md-primary">
+      Login
+    </md-button>
+    <md-button ng-click="cancel()" class="md-primary">
+      Cancel
+    </md-button>
+  </div>
+  </form>
+</md-dialog>
