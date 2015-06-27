@@ -12,6 +12,15 @@ scroll.factory('searchService',function($http){
 	toreturn.mayknow=function(){
 		return $http.get('find/mayknow');
 	}
+	toreturn.havingTopic=function(id){
+		return $http.post('find/havingTopic',{id:id});
+	}
+	toreturn.relatedtopics=function(id){
+		return $http.post('find/relatedtopics',{id:id});
+	}
+	toreturn.userinfo=function(username){
+		return $http.post('find/userinfo',{username:username});
+	}
 	return toreturn;
 })
 scroll.factory('loginService',function($http,$rootScope,$mdToast,$route){

@@ -23,6 +23,11 @@ $maxWidth:960px;;
 *,*:after{
 	box-sizing: border-box;
 }
+.clear:after{
+  clear: both;
+  content: "";
+  display: table;
+}
 $borderColor:rgb(221,221,221);
 .bordered{
 	border:solid 1px $borderColor;
@@ -511,4 +516,69 @@ $niceBG:#fdfdfd;
 	color:#911;
 	background:#FCDEDB;
 	border-color:#d2b2b2;
+}
+.titler{
+	background:#f5f5f5;
+	color:#333;
+	padding:6px 10px;
+	border-bottom:solid 1px $borderColor;
+}
+.point-wrap{
+	position:relative;
+	padding-top:10px;
+	margin-bottom:20px;
+	.container{
+		margin-top: 10px;
+		@extend .clear;
+		.leveler{
+			display: inline-block;
+			width: 70%;
+			float: left;
+			border:solid 1px $borderColor;
+			border-radius: 3px;
+			.title{
+				@extend .titler;
+			}
+			.list{
+				.item{
+					display: block;
+					padding:5px 10px 8px;
+					border-bottom:solid 1px $borderColor;
+					background-color: #fff;
+					&:last-child{
+						border-bottom: none;
+					}
+					&:hover{
+						background-color:#fcfcfc;
+					}
+				}
+			}
+			&.other{
+				border:solid 1px $borderColor;
+				margin-bottom: 15px;
+				float: right;
+				width: 22%;
+				display: inline-block;
+			}
+		}
+	}
+}
+.level{
+	color: #17B4A7;
+}
+.linky{
+	color:#427fed;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+.username{
+	color:#555555;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+
+.user{
+	position: relative;
 }

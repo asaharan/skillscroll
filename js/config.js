@@ -72,6 +72,10 @@ scroll.config(['$routeProvider',function($routeProvider) {
 		templateUrl:'partials/settings.html',
 		controller:'settingsCtrl'
 	}).
+	when('/topics/:topic/:topic_id',{
+		templateUrl:'partials/point.html',
+		controller:'pointCtrl'
+	}).
 	when('/settings',{
 		redirectTo:'/settings/profile'
 	}).

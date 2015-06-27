@@ -1812,6 +1812,11 @@
 *, *:after {
   box-sizing: border-box; }
 
+.clear:after, .point-wrap .container:after {
+  clear: both;
+  content: "";
+  display: table; }
+
 .bordered, .intro {
   border: solid 1px #dddddd; }
 
@@ -2222,5 +2227,55 @@ ng-view {
   color: #911;
   background: #FCDEDB;
   border-color: #d2b2b2; }
+
+.titler, .point-wrap .container .leveler .title {
+  background: #f5f5f5;
+  color: #333;
+  padding: 6px 10px;
+  border-bottom: solid 1px #dddddd; }
+
+.point-wrap {
+  position: relative;
+  padding-top: 10px;
+  margin-bottom: 20px; }
+  .point-wrap .container {
+    margin-top: 10px; }
+    .point-wrap .container .leveler {
+      display: inline-block;
+      width: 70%;
+      float: left;
+      border: solid 1px #dddddd;
+      border-radius: 3px; }
+      .point-wrap .container .leveler .list .item {
+        display: block;
+        padding: 5px 10px 8px;
+        border-bottom: solid 1px #dddddd;
+        background-color: #fff; }
+        .point-wrap .container .leveler .list .item:last-child {
+          border-bottom: none; }
+        .point-wrap .container .leveler .list .item:hover {
+          background-color: #fcfcfc; }
+      .point-wrap .container .leveler.other {
+        border: solid 1px #dddddd;
+        margin-bottom: 15px;
+        float: right;
+        width: 22%;
+        display: inline-block; }
+
+.level {
+  color: #17B4A7; }
+
+.linky {
+  color: #427fed; }
+  .linky:hover {
+    text-decoration: underline; }
+
+.username {
+  color: #555555; }
+  .username:hover {
+    text-decoration: underline; }
+
+.user {
+  position: relative; }
 
 /*# sourceMappingURL=style.css.map */

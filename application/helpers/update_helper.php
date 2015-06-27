@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	function profile($user_id,$name="",$phone='',$alternate_email='',$facebook='',$address=''){
+	function profile($user_id,$name="",$phone='',$alternate_email='',$facebook='',$address='',$about=''){
 		$CI=&get_instance();
 
 		$crede=array(
@@ -7,7 +7,8 @@
 			'phone'=>$phone,
 			'alternate_email'=>$alternate_email,
 			'facebook'=>$facebook,
-			'address'=>$address
+			'address'=>$address,
+			'about'=>$about
 		);
 		$CI->db->where('id',$user_id)->update('users',$crede);
 

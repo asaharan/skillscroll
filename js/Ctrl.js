@@ -143,16 +143,63 @@ scroll.controller('searchCtrl', ['$scope','searchService', function($scope,searc
 		console.log(data);
 	});
 }]);
-scroll.controller('userCtrl', ['$scope', function($scope){
-	$scope.name='userCtrl'
-}]);
+scroll.controller('pointCtrl', function($scope,$routeParams,searchService){
+	$scope.id=$routeParams.topic_id;
+	$scope.topic=$routeParams.topic;
+	$scope.description='';//'Description not available';
+	$scope.found=true;
+
+	$scope.relatedtopics=[
+		{'topic':'MySQL','id':1},
+		{'topic':'angular','id':5}
+	];
+
+	$scope.categories=[
+		{'name':'hot','dis':'Hot topics'},
+		{'name':'relate','dis':'Related topics'}
+	];
+
+	searchService.havingTopic($scope.id).success(function(reply){
+		if(reply.status){
+			$scope.people=reply.people;
+			$scope.topic=reply.topic;
+		}else{
+			$scope.found=false;
+		}
+		updatehottopics();
+	});
+
+	function updatehottopics(){
+		searchService.hottopics().success(function(reply){
+			$scope.hottopics=reply.topics;	
+		})
+	}
+	searchService.relatedtopics($scope.id).success(function(reply){
+		if(reply.status){
+			$scope.relatedtopics=reply.topics;
+		}
+	})
+})
+scroll.controller('userCtrl', function($scope,$routeParams,searchService){
+	$scope.username=$routeParams.username;
+	$scope.name=$routeParams.username;
+	searchService.userinfo($scope.username).success(function(reply){
+		if(reply.status){
+			$scope.info=reply.info;
+			$scope.name=reply.info.name;
+			if(reply.topic!=false){
+				$scope.topics=reply.topics;
+			}
+		}
+	});
+});
 scroll.controller('settingsCtrl', function($scope,$location,loginService,updateService,$routeParams,$mdToast){
 	init();
 	$scope.settings=[
 		{'d':'Profile','l':'profile'},
 		{'d':'Topics','l':'topics'},
 		{'d':'Account settings','l':'admin'},
-		{'d':'Security','l':'security'}
+		//{'d':'Security','l':'security'}
 		];
 	function init(){
 		$scope.type=$routeParams.type;

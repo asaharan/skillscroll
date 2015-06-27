@@ -1,0 +1,43 @@
+<div class="point-wrap" ng-if="found">
+	<div class="point">
+		<div><b>{{topic}}</b></div>
+		<div ng-if="description">{{description}}</div>
+	</div>
+	<div class="container">
+		<div class="leveler">
+			<div class="title">Peoples who know about <b>{{topic}}</b></div>
+			<div class="list">
+				<div class="item" ng-repeat="p in people | orderBy:'-level'">
+					<div><a class="username" href="users/{{p.username}}"><b>{{p.name}}</b></a> <span class="level _{{p.level}}">{{getLevelTag(p.level)}}</span></div>
+					<div>{{p.description}}</div>
+					<div ng-if="p.link"><a class="linky" target="_blank" href="{{p.link}}">Link to related project</a></div>
+				</div>
+			</div>
+		</div>
+		<div ng-if="false" class="leveler other">
+			<div class="title">
+				<i class="fa fa-arrows-h"></i> Related topics
+			</div>
+			<div class="list">
+				<a href="topics/{{r.topic}}/{{r.id}}" class="item" ng-repeat="r in relatedtopics">
+					{{r.topic}}
+				</a>
+			</div>
+		</div>
+		<div class="leveler other">
+			<div class="title">
+				<i class="fa fa-fire"></i> Hot topics
+			</div>
+			<div class="list">
+				<a href="topics/{{r.topic}}/{{r.id}}" class="item" ng-repeat="r in hottopics">
+					{{r.topic}}
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-if="!found">
+	<center>
+		Sorry <b>{{topic}}</b> not found!
+	</center>
+</div>

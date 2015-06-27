@@ -39,8 +39,9 @@ class Update extends CI_Controller {
 		$facebook=$this->input->post('facebook');
 		$address=$this->input->post('address');
 		$alternate_email=$this->input->post('alternate_email');
+		$about=$this->input->post('about');
 
-		$response['status']=profile($user_id,$name,$phone,$alternate_email,$facebook,$address);
+		$response['status']=profile($user_id,$name,$phone,$alternate_email,$facebook,$address,$about);
 		echo json_encode($response);
 
 	}

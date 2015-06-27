@@ -172,7 +172,7 @@
 			return false;
 		}
 
-		$result=$CI->db->select('id,username,alternate_email,name,email,phone,facebook,address')->get_where('users',array('id'=>$user_id));
+		$result=$CI->db->select('id,username,about,alternate_email,name,email,phone,facebook,address')->get_where('users',array('id'=>$user_id));
 		if($result->num_rows()!=1){
 			// echo $result->num_rows().$user_id;
 			return false;

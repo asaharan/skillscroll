@@ -1,1 +1,26 @@
-{{name}}
+<div class="user">
+	<div class="info">
+		<div>
+			{{name}} {{info.about}}
+		</div>
+		<div>
+			<a ng-href="{{info.facebook}}">Facebook</a>
+		</div>
+		<div ng-show="true">
+			<div><b>Email:</b> {{info.email}}<span ng-if="info.alternate_email">, {{info.alternate_email}}</span></div>
+			<div ng-if="info.phone"><b>Phone No.:</b> {{info.phone}}</div>
+			<div ng-if="info.address"><b>Address:</b> {{info.address}}</div>
+		</div>
+	</div>
+	<div ng-repeat="t in topics">
+		<div>
+			{{getLevelTag(t.level)}} in <a href="topics/{{t.topic}}">{{t.topic}}</a>
+		</div>
+		<div ng-if="t.description">
+			{{t.description}}
+		</div>
+		<div>
+			<a ng-if="t.link" target="_blank" href="{{t.link}}" class="linky">Project link</a>
+		</div>
+	</div>
+</div>

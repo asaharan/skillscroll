@@ -18,6 +18,10 @@
 					<input required type="text" ng-model="user.name">
 				</label>
 				<label>
+					<legend>About you</legend>
+					<input required type="text" ng-model="user.about">
+				</label>
+				<label>
 					<legend>Phone No.</legend>
 					<input type="text" ng-model="user.phone">
 				</label>
@@ -75,7 +79,7 @@
 					<div class="topic-wrap" ng-controller="topicCtrl" ng-init="topic=t" ng-repeat="t in topics | orderBy:'-level'">
 						<div ng-show="!editing" layout-align="space-between start" layout="row">
 							<div flex="80">
-								<div><b>{{topic.topic}}</b> ({{getLevelTag(topic.level)}})</div>
+								<div><a href="topics/{{topic.topic}}/{{topic.topic_id}}"><b>{{topic.topic}}</b></a> ({{getLevelTag(topic.level)}})</div>
 								<div class="desc">{{topic.description}}</div>
 								<div>
 									<a href="{{topic.link}}" target="_blank">{{topic.link}}</a>
