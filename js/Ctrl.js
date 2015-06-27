@@ -1,6 +1,11 @@
-scroll.controller('homeCtrl', ['$scope','$routeParams', function($scope,$routeParams){
-	$scope.name="Amit Saharan";
-}]);
+scroll.controller('homeCtrl', function($scope,$routeParams,searchService){
+	searchService.hottopics().success(function(reply){
+		$scope.hottopics=reply.topics;
+	});
+	searchService.mayknow().success(function(reply){
+		$scope.mayknow=reply.people;
+	});
+});
 
 
 scroll.controller('mainCtrl', function($scope,$rootScope,loginService,$mdDialog,$mdToast){
@@ -128,3 +133,68 @@ scroll.controller('searchCtrl', ['$scope','searchService', function($scope,searc
 scroll.controller('userCtrl', ['$scope', function($scope){
 	$scope.name='userCtrl'
 }]);
+scroll.controller('settingsCtrl', function($scope,$location,loginService,updateService,$routeParams){
+	init();
+	$scope.settings=[
+		{'d':'Profile','l':'profile'},
+		{'d':'Topics','l':'topics'},
+		{'d':'Security','l':'security'}];
+	function init(){
+		$scope.type=$routeParams.type;
+		var type=$scope.type;
+		loginService.isloggedin().success(function(reply){
+			if(!reply.login){
+				$location.url('/');
+				return;
+			}
+			if(type=='profile'){
+				fetchinfo();
+			}else{
+				if(type=='topics'){
+					fetchtopics();
+				}
+			}
+		})
+	}
+	$scope.newTopicCtrl=function($scope,updateService){
+		$scope.addTopic=function(){
+			console.log($scope.topic);
+			updateService.addTopic($scope.topic).success(function(reply){
+				console.log(reply);
+			});
+		}
+	}
+	$scope.topicCtrl=function($scope,updateService){
+		$scope.editing=false;
+		var f=0;
+		$scope.delete=function(){
+			updateService.deleteTopic($scope.topic.iid).success(function(reply){
+				console.log(reply);
+			});
+		}
+		$scope.edit=function(){
+			if(f==0){
+				// $scope.new=$scope.topic;
+				$scope.new=[];
+				angular.copy($scope.topic,$scope.new);
+				f++;
+			}
+			$scope.editing=!$scope.editing;
+		}
+	}
+	function fetchinfo(){
+		loginService.userinfo().success(function(reply){
+			$scope.user=reply.info;
+		});
+	}
+	function fetchtopics(){
+		loginService.usertopics().success(function(reply){
+			$scope.topics=reply.topics;
+		});
+	}
+	$scope.updateProfile=function(){
+		updateService.profile($scope.user).success(function(reply){
+
+		});
+	}
+})

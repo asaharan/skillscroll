@@ -85,4 +85,18 @@ class User extends CI_Controller {
 		$this->load->helper('login');
 		logout();
 	}
+	public function topics(){
+		$this->load->helper('login');
+		$response['login']=false;
+		if(!isloggedin()){
+			die(json_encode($response));
+		}
+		$response['login']=true;
+		$this->load->helper('update');
+
+		$user_id=userid();
+
+		$response['topics']=fetch_topics($user_id);
+		echo json_encode($response);
+	}
 }

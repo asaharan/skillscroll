@@ -1,0 +1,113 @@
+<div layout="row" class="setting-wrap" layout-align="space-between start">
+	<div flex="25">
+		<div class="settings">
+			<div class="title">Personal Settings</div>
+			<ul class="list">
+				<a ng-repeat="s in settings" class="{{s.l==type}}" href="settings/{{s.l}}">
+					{{s.d}}
+				</a>
+			</ul>
+		</div>
+	</div>
+	<div ng-switch="type" flex="70">
+
+		<div ng-switch-when="profile" class="settings">
+			<div class="title">Public profile</div>
+			<form class="form">
+				<label>
+					<legend>Name</legend>
+					<input required type="text" ng-model="user.name">
+				</label>
+				<label>
+					<legend>Phone No.</legend>
+					<input type="text" ng-model="user.phone">
+				</label>
+				<label>
+					<legend>Facebook profile</legend>
+					<input type="text" ng-model="user.facebook">
+				</label>
+				<label>
+					<legend>Address</legend>
+					<input type="text" ng-model="user.address">
+				</label>
+				<div class="actions">
+					<button ng-click="updateProfile()">Update profile</button>
+				</div>
+			</form>
+		</div>
+		<div ng-switch-when="topics">
+		<div class="settings" ng-controller="newTopicCtrl">
+				<div class="title">Add new topic you know about</div>
+				<form class="form">
+					<label>
+						<legend>Topic *</legend>
+						<input placeholder="Like Angularjs" required ng-model="topic.topic" type="text" class="">
+					</label>
+					<label>
+						<legend>Level *</legend>
+						<select required ng-model="topic.level" style="width:150px;padding:5px 15px;background:#fafafa;border:solid 1px #cccccc;border-radius:3px;">
+							<option value="1">Beginner</option>
+							<option value="2">Learning</option>
+							<option value="3">Proeficient</option>
+							<option value="4">Advanced</option>
+							<option value="5">Expert</option>
+						</select>
+					</label>
+					<label>
+						<legend>Description</legend>
+						<input placeholder="Like used to develop SkillScroll" type="text" ng-model="topic.description">
+					</label>
+					<label>
+						<legend>Link of related project</legend>
+						<input placeholder="Like http://students.iitk.ac.in/skillscroll/" type="text" ng-model="topic.link">
+					</label>
+					<div class="actions">
+						<button ng-click="addTopic()">Add topic</button>
+					</div>
+				</form>
+			</div>
+
+			<div class="settings" ng-if="topics.length>0">
+			<div class="title">Topics you know about</div>
+			<form class="form nopad">
+				<div class="topic-wrap" ng-controller="topicCtrl" ng-init="topic=t" ng-repeat="t in topics">
+					<div ng-show="!editing" layout-align="space-between start" layout="row">
+						<div flex="80">
+							<div>{{topic.topic}} ({{topic.level}})</div>
+							<div class="desc">{{topic.description}}</div>
+							<div>
+								<a href="{{topic.link}}" target="_blank">{{topic.link}}</a>
+							</div>
+						</div>
+						<div flex="20" layout="column" layout-align="space-around center">
+							<button class="edit" ng-click="edit()">Edit</button>
+							<button ng-click="delete()" class="delete">Delete</button>
+						</div>
+					</div>
+					<div ng-show="editing">
+						<div>{{new.topic}}</div>
+						<div>
+							<label>
+								<legend>Level</legend>
+								<input type="text" ng-model="new.level">
+							</label>
+							<label>
+								<legend>Description</legend>
+								<input type="text" ng-model="new.description">
+							</label>
+							<label>
+								<legend>Link of related project</legend>
+								<input type="text" ng-model="new.link">
+							</label>
+							<div>
+								<button>Save</button>
+								<button ng-click="edit()">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>

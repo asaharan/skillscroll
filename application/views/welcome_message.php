@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<span ng-if="!loggedIn" ng-click="login($event)" class="login">Login</span>
 		</div>
 		<div ng-if="loggedIn" ng-cloak class="uac">
-			<a href="settings" ng-if="loggedIn" ><i class="fa fa-cog"></i>{{username}}</a>
+			<a href="settings/profile" ng-if="loggedIn" ><i class="fa fa-cog"></i>{{userinfo.username}}</a>
 			<a href="#" ng-click="logout()"><i class="fa fa-sign-out"></i></a>
 		</div>
 	</div>
@@ -39,5 +39,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/config.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/Ctrl.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/services.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/directives.js"></script>
 </body>
 </html>

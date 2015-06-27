@@ -68,6 +68,13 @@ scroll.config(['$routeProvider',function($routeProvider) {
 		templateUrl:'partials/users.html',
 		controller:'userCtrl'
 	}).
+	when('/settings/:type',{
+		templateUrl:'partials/settings.html',
+		controller:'settingsCtrl'
+	}).
+	when('/settings',{
+		redirectTo:'/settings/profile'
+	}).
 	otherwise({
         	//redirectTo: '/'
         	template:'<div>You are lost in space</div>'

@@ -24,7 +24,8 @@
   ],
   "dependencies": {
     "lato": "~0.3.0",
-    "fontawesome": "~4.3.0"
+    "fontawesome": "~4.3.0",
+    "roboto-fontface": "~0.4.2"
   },
   "resolutions": {
     "angular-material": "0.9.8"

@@ -32,4 +32,25 @@ class Find extends CI_Controller {
 		}
 		echo json_encode($response);
 	}
+	public function hot(){
+		$this->db->select('topics.topic,topics.id');
+		$this->db->join('topics','topics.id=user_topics.topic_id')->group_by('topic_id')->limit(10)->order_by('COUNT(user_topics.topic_id)');
+		$topics=$this->db->get('user_topics');
+
+		$response['topics']=[];
+		foreach ($topics->result() as $topic) {
+			array_push($response['topics'],(array)$topic);
+		}
+		echo json_encode($response);
+	}
+	public function mayknow(){
+		$this->db->select('username,name')->limit(10);
+		$people=$this->db->get('users');
+		$response['people']=[];
+		foreach ($people->result() as $person) {
+			array_push($response['people'], (array)$person);
+		}
+
+		echo json_encode($response);
+	}
 }

@@ -1,20 +1,18 @@
 scroll.factory('searchService',function($http){
 	var amittopics=[{topic:'php',level:1},{topic:'Robotics',level:2}];
-	return{
-		find:function(q){
-			var promise=$http.post('Find',{q:q}).success(function(data){
-				return data;
-			});
-			people=[
-					{name:'Ranju Suthar',topics:amittopics},
-					{name:'saharan',topics:amittopics},
-					{name:'saharan',topics:amittopics},
-					{name:'amit',topics:amittopics},
-					{name:'amit',topics:amittopics}
-				];
-			return promise;
-		}
+
+	var toreturn=[];
+	toreturn.find=function(q){
+		var promise=$http.post('find',{q:q});
+		return promise;
 	}
+	toreturn.hottopics=function(){
+		return promise=$http.get('find/hot');
+	}
+	toreturn.mayknow=function(){
+		return $http.get('find/mayknow');
+	}
+	return toreturn;
 })
 scroll.factory('loginService',function($http,$rootScope,$mdToast){
 	var toreturn=[];
@@ -25,6 +23,9 @@ scroll.factory('loginService',function($http,$rootScope,$mdToast){
 	}
 	toreturn.userinfo=function(){
 		return $http.post('user/info');
+	}
+	toreturn.usertopics=function(){
+		return $http.post('user/topics');
 	}
 	toreturn.signup=function(data){
 		$http.post('user/signup',data).success(function(reply){
@@ -40,8 +41,24 @@ scroll.factory('loginService',function($http,$rootScope,$mdToast){
 			}
 		});
 	}
+	toreturn.isloggedin=function(){
+		return $http.get('user/isloggedin');
+	}
 	toreturn.logout=function(){
 		$http.post('user/logout');
+	}
+	return toreturn;
+})
+scroll.factory('updateService',function($http){
+	var toreturn=[];
+	toreturn.profile=function(data){
+		return $http.post('update/profile',data);
+	}
+	toreturn.deleteTopic=function(iid){
+		return $http.post('update/deleteTopic',{iid});
+	}
+	toreturn.addTopic=function(data){
+		return $http.post('update/addTopic',data);
 	}
 	return toreturn;
 })

@@ -24,6 +24,23 @@
 		<span class="fa-stack fa-lg iconic">
 		  <i class="fa fa-connectdevelop fa-stack-1x"></i>
 		</span>
-		<div>Develope future</div>
+		<div>Develop future</div>
 	</a>
+</div>
+
+<div layout="row" layout-align="space-between start" class="extra">
+	<div flex="45" class="material">
+		<div class="head"><i class="fa fa-fire"></i> Hot Topics</div>
+		<div class="inner" layout="row" layout-wrap>
+			<a flex="50" ng-repeat="topic in hottopics | limitTo:10" ng-href="topics/{{topic.topic}}/{{topic.id}}">{{topic.topic}}</a>
+		</div>
+	</div>
+	<div flex="45" class="material">
+		<div class="head">
+		<i class="fa fa-user-secret" style="line-height:38px;"></i>
+		You may know</div>
+		<div class="inner" layout="row" layout-wrap>
+			<a flex="50" ng-repeat="person in mayknow" ng-href="users/{{person.username}}">{{person.name}}</a>
+		</div>
+	</div>
 </div>
