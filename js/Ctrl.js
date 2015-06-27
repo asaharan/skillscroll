@@ -11,7 +11,6 @@ scroll.controller('homeCtrl', function($scope,$routeParams,searchService){
 scroll.controller('mainCtrl', function($scope,$rootScope,loginService,$mdDialog,$mdToast){
 	$scope.getLevelTag=function(id){
 		var level=['Beginner','Learning','Proficient','Advanced','Expert'];
-		console.log(level[id-1],id);
 		if(id>0&&id<6){
 			return level[id-1];
 		}
@@ -140,7 +139,6 @@ scroll.controller('searchCtrl', ['$scope','searchService', function($scope,searc
 	var amittopics=[{topic:'php',level:1},{topic:'Robotics',level:2}];
 	searchService.find('a').success(function(data){
 		$scope.people=data;
-		console.log(data);
 	});
 }]);
 scroll.controller('pointCtrl', function($scope,$routeParams,searchService){
@@ -232,9 +230,7 @@ scroll.controller('settingsCtrl', function($scope,$location,loginService,updateS
 	}
 	$scope.newTopicCtrl=function($scope,updateService,$timeout){
 		$scope.addTopic=function(){
-			// console.log($scope.topic);
 			updateService.addTopic($scope.topic).success(function(reply){
-				// console.log(reply);
 			});
 		}
 	}
@@ -243,7 +239,7 @@ scroll.controller('settingsCtrl', function($scope,$location,loginService,updateS
 		var f=0;
 		$scope.delete=function(){
 			updateService.deleteTopic($scope.topic.id).success(function(reply){
-				console.log(reply);
+				
 			});
 		}
 		$scope.edit=function(){
@@ -256,7 +252,6 @@ scroll.controller('settingsCtrl', function($scope,$location,loginService,updateS
 			$scope.editing=!$scope.editing;
 		}
 		$scope.save=function(){
-			// console.log($scope.new);
 			updateService.updateTopic($scope.new).success(function(reply){
 				if(reply.status){
 					$scope.editing=false;

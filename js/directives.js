@@ -1,11 +1,11 @@
-scroll.directive('profile', function(){
+scroll.directive('intro', function(){
     return {
         restrict: 'E',
         scope: {
         	current:'@'
         },
         transclude: false,
-        templateUrl: 'partials/templates/profile.html',
+        templateUrl: 'partials/templates/intro.html',
         controller: function($scope) {
         }
     };

@@ -79,6 +79,9 @@ scroll.config(['$routeProvider',function($routeProvider) {
 	when('/settings',{
 		redirectTo:'/settings/profile'
 	}).
+	when('/about',{
+		templateUrl:'partials/about.html'
+	}).
 	otherwise({
         	//redirectTo: '/'
         	template:'<div>You are lost in space</div>'
