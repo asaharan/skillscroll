@@ -14,7 +14,7 @@ scroll.factory('searchService',function($http){
 	}
 	return toreturn;
 })
-scroll.factory('loginService',function($http,$rootScope,$mdToast){
+scroll.factory('loginService',function($http,$rootScope,$mdToast,$route){
 	var toreturn=[];
 	toreturn.login=function(info){
 		$http.post('user/login',info).success(function(reply){
@@ -45,7 +45,9 @@ scroll.factory('loginService',function($http,$rootScope,$mdToast){
 		return $http.get('user/isloggedin');
 	}
 	toreturn.logout=function(){
-		$http.post('user/logout');
+		$http.post('user/logout').success(function(){
+			$route.reload();
+		});
 	}
 	return toreturn;
 })
@@ -54,11 +56,17 @@ scroll.factory('updateService',function($http){
 	toreturn.profile=function(data){
 		return $http.post('update/profile',data);
 	}
-	toreturn.deleteTopic=function(iid){
-		return $http.post('update/deleteTopic',{iid});
+	toreturn.deleteTopic=function(id){
+		return $http.post('update/deleteTopic',{id});
 	}
 	toreturn.addTopic=function(data){
 		return $http.post('update/addTopic',data);
+	}
+	toreturn.updateTopic=function(data){
+		return $http.post('update/updateTopic',data);
+	}
+	toreturn.updatePassword=function(data){
+		return $http.post('update/updatePassword',data);
 	}
 	return toreturn;
 })

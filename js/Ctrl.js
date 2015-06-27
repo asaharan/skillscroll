@@ -9,6 +9,14 @@ scroll.controller('homeCtrl', function($scope,$routeParams,searchService){
 
 
 scroll.controller('mainCtrl', function($scope,$rootScope,loginService,$mdDialog,$mdToast){
+	$scope.getLevelTag=function(id){
+		var level=['Beginner','Learning','Proficient','Advanced','Expert'];
+		console.log(level[id-1],id);
+		if(id>0&&id<6){
+			return level[id-1];
+		}
+		return 'Yet not set';
+	}
 	$scope.username='amitkum';
 	$scope.loggedIn=false;
 	$scope.login=function(){
@@ -21,6 +29,9 @@ scroll.controller('mainCtrl', function($scope,$rootScope,loginService,$mdDialog,
 	}
 	init();
 	function init(){
+		updateuserinfo();
+	}
+	function updateuserinfo(){
 		loginService.userinfo().success(function(reply){
 			if(reply.login!=true){
 				return;
@@ -119,6 +130,8 @@ scroll.controller('mainCtrl', function($scope,$rootScope,loginService,$mdDialog,
 		if(reply.login==true){
 			$mdDialog.cancel();
 			$scope.loggedIn=true;
+			$scope.userinfo=reply
+			updateuserinfo();
 		}
 	});
 });
@@ -133,12 +146,14 @@ scroll.controller('searchCtrl', ['$scope','searchService', function($scope,searc
 scroll.controller('userCtrl', ['$scope', function($scope){
 	$scope.name='userCtrl'
 }]);
-scroll.controller('settingsCtrl', function($scope,$location,loginService,updateService,$routeParams){
+scroll.controller('settingsCtrl', function($scope,$location,loginService,updateService,$routeParams,$mdToast){
 	init();
 	$scope.settings=[
 		{'d':'Profile','l':'profile'},
 		{'d':'Topics','l':'topics'},
-		{'d':'Security','l':'security'}];
+		{'d':'Account settings','l':'admin'},
+		{'d':'Security','l':'security'}
+		];
 	function init(){
 		$scope.type=$routeParams.type;
 		var type=$scope.type;
@@ -156,11 +171,23 @@ scroll.controller('settingsCtrl', function($scope,$location,loginService,updateS
 			}
 		})
 	}
-	$scope.newTopicCtrl=function($scope,updateService){
+	$scope.passwordCtrl=function($scope,updateService){
+		$scope.user=[];
+		$scope.updatePassword=function(){
+			if($scope.user.new==$scope.user.confirm){
+				updateService.updatePassword($scope.user).success(function(reply){
+
+				});
+			}else{
+				$scope.error="Password doesn't match the confirmation";
+			}
+		}
+	}
+	$scope.newTopicCtrl=function($scope,updateService,$timeout){
 		$scope.addTopic=function(){
-			console.log($scope.topic);
+			// console.log($scope.topic);
 			updateService.addTopic($scope.topic).success(function(reply){
-				console.log(reply);
+				// console.log(reply);
 			});
 		}
 	}
@@ -168,7 +195,7 @@ scroll.controller('settingsCtrl', function($scope,$location,loginService,updateS
 		$scope.editing=false;
 		var f=0;
 		$scope.delete=function(){
-			updateService.deleteTopic($scope.topic.iid).success(function(reply){
+			updateService.deleteTopic($scope.topic.id).success(function(reply){
 				console.log(reply);
 			});
 		}
@@ -180,6 +207,16 @@ scroll.controller('settingsCtrl', function($scope,$location,loginService,updateS
 				f++;
 			}
 			$scope.editing=!$scope.editing;
+		}
+		$scope.save=function(){
+			// console.log($scope.new);
+			updateService.updateTopic($scope.new).success(function(reply){
+				if(reply.status){
+					$scope.editing=false;
+					angular.copy($scope.new,$scope.topic);
+				}
+				fetchtopics();
+			});
 		}
 	}
 	function fetchinfo(){
@@ -194,7 +231,14 @@ scroll.controller('settingsCtrl', function($scope,$location,loginService,updateS
 	}
 	$scope.updateProfile=function(){
 		updateService.profile($scope.user).success(function(reply){
-
+			if(reply.status){
+				$mdToast.show(
+					$mdToast.simple()
+					.content('Successfully updated your profile!')
+					.position('bottom left')
+					.hideDelay(4000)
+					);
+			}
 		});
 	}
-})
+});

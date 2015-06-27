@@ -27,6 +27,7 @@ class Update extends CI_Controller {
 	public function profile(){
 		$response=[];
 		$response['login']=false;
+		$response['status']=false;
 		$this->load->helper('login');
 		if(!isloggedin()){
 			die(json_encode($response));
@@ -37,8 +38,10 @@ class Update extends CI_Controller {
 		$phone=$this->input->post('phone');
 		$facebook=$this->input->post('facebook');
 		$address=$this->input->post('address');
+		$alternate_email=$this->input->post('alternate_email');
 
-		profile($user_id,$name,$phone,$facebook,$address);
+		$response['status']=profile($user_id,$name,$phone,$alternate_email,$facebook,$address);
+		echo json_encode($response);
 
 	}
 
@@ -50,7 +53,7 @@ class Update extends CI_Controller {
 		}
 		$response['login']=true;
 		$user_id=userid();
-		$id=$this->input->post('iid');
+		$id=$this->input->post('id');
 		$this->load->helper('update');
 		deleteTopic($user_id,$id);
 	}
@@ -83,5 +86,52 @@ class Update extends CI_Controller {
 		}
 
 		addUserTopic($user_id,$topic,$level,$description,$link);
+	}
+	public function updateTopic(){
+		$response['login']=false;
+		$this->load->helper('login');
+		if(!isloggedin()){
+			die(json_encode($response));
+		}
+		$user_id=userid();
+		$response['login']=true;
+		if(empty($this->input->post('id')) || empty($this->input->post('level'))){
+			$response['status']=false;
+			die(json_encode($response));
+		}
+		$id=$this->input->post('id');
+		$level=$this->input->post('level');
+		$description='';
+		if(!empty($this->input->post('description'))){
+			$description=$this->input->post('description');
+		}
+		$link='';
+		if(!empty($this->input->post('link'))){
+			$link=$this->input->post('link');
+		}
+		$this->load->helper('update');
+		$response['status']=updateTopic($user_id,$id,$level,$description,$link);
+
+		echo json_encode($response);
+	}
+	public function updatePassword(){
+		$response['login']=false;
+		$this->load->helper('login');
+		if(!isloggedin()){
+			die(json_encode($response));
+		}
+		$user_id=userid();
+		$response['login']=true;
+
+
+		if(empty($this->input->post('old')) || empty($this->input->post('new'))){
+			$response['status']=false;
+			die(json_encode($response));
+		}
+		$old=$this->input->post('old');
+		$new=$this->input->post('new');
+
+		$response['status']=updatepassword($user_id,$old,$new);
+		echo json_encode($response);
 	}
 }

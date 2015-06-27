@@ -2025,6 +2025,8 @@ ng-view {
     border-radius: 3px;
     padding-bottom: 5px;
     background: #fff; }
+    .extra .material:hover a {
+      color: #427fed; }
     .extra .material .head {
       padding: 11px 20px;
       font-size: 24px;
@@ -2045,10 +2047,11 @@ ng-view {
       border-bottom-right-radius: 3px; }
       .extra .material .inner a {
         font-size: 14px;
-        transition: color ease 0.3s;
-        color: #427fed; }
+        padding: 2px 0;
+        transition: color ease 0.3s; }
         .extra .material .inner a:hover {
-          color: #427fed; }
+          color: #427fed;
+          text-decoration: underline; }
 
 .setting-wrap {
   margin-top: 10px; }
@@ -2062,7 +2065,8 @@ ng-view {
       border-radius: 3px;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      padding: 9px 10px 10px; }
+      padding: 9px 10px 10px;
+      color: #333; }
     .setting-wrap .settings .form {
       padding: 1px 10px 10px;
       position: relative;
@@ -2157,5 +2161,66 @@ ng-view {
           color: #000;
           font-weight: bold;
           border-left: solid 2px #d26911; }
+
+.saveButton {
+  font-weight: bold;
+  height: 34px;
+  border-radius: 3px;
+  background: #66b64a;
+  background-image: linear-gradient(#79d858, #569e3d);
+  color: #fff;
+  padding: 7px 12px 6px;
+  border: solid 1px #5ca941; }
+
+.cancelButton {
+  font-weight: bold;
+  height: 34px;
+  border-radius: 3px;
+  background: #EEEEEE;
+  background-image: linear-gradient(#EEEEEE, #ededed);
+  color: #333;
+  padding: 7px 12px 6px;
+  border: solid 1px #dddddd; }
+
+.whiteButton {
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #333;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #eee;
+  background-image: -webkit-linear-gradient(#fcfcfc, #eee);
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none; }
+  .whiteButton:hover {
+    text-decoration: none;
+    background-color: #ddd;
+    background-image: -webkit-linear-gradient(#eee, #ddd);
+    background-image: linear-gradient(#eee, #ddd);
+    border-color: #ccc; }
+
+.msg, .error {
+  position: relative;
+  padding: 4px 10px;
+  margin: 7px 0;
+  background: #FCF8E3;
+  color: #8A6D3B;
+  border: 1px solid #faebcc; }
+
+.error {
+  color: #911;
+  background: #FCDEDB;
+  border-color: #d2b2b2; }
 
 /*# sourceMappingURL=style.css.map */

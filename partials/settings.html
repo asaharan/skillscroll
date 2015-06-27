@@ -10,7 +10,6 @@
 		</div>
 	</div>
 	<div ng-switch="type" flex="70">
-
 		<div ng-switch-when="profile" class="settings">
 			<div class="title">Public profile</div>
 			<form class="form">
@@ -21,6 +20,10 @@
 				<label>
 					<legend>Phone No.</legend>
 					<input type="text" ng-model="user.phone">
+				</label>
+				<label>
+					<legend>Alternate email address</legend>
+					<input type="text" type="email" ng-model="user.alternate_email">
 				</label>
 				<label>
 					<legend>Facebook profile</legend>
@@ -36,7 +39,7 @@
 			</form>
 		</div>
 		<div ng-switch-when="topics">
-		<div class="settings" ng-controller="newTopicCtrl">
+			<div class="settings" ng-controller="newTopicCtrl">
 				<div class="title">Add new topic you know about</div>
 				<form class="form">
 					<label>
@@ -66,48 +69,79 @@
 					</div>
 				</form>
 			</div>
-
 			<div class="settings" ng-if="topics.length>0">
-			<div class="title">Topics you know about</div>
-			<form class="form nopad">
-				<div class="topic-wrap" ng-controller="topicCtrl" ng-init="topic=t" ng-repeat="t in topics">
-					<div ng-show="!editing" layout-align="space-between start" layout="row">
-						<div flex="80">
-							<div>{{topic.topic}} ({{topic.level}})</div>
-							<div class="desc">{{topic.description}}</div>
-							<div>
-								<a href="{{topic.link}}" target="_blank">{{topic.link}}</a>
+				<div class="title">Topics you know about</div>
+				<form class="form nopad">
+					<div class="topic-wrap" ng-controller="topicCtrl" ng-init="topic=t" ng-repeat="t in topics | orderBy:'-level'">
+						<div ng-show="!editing" layout-align="space-between start" layout="row">
+							<div flex="80">
+								<div><b>{{topic.topic}}</b> ({{getLevelTag(topic.level)}})</div>
+								<div class="desc">{{topic.description}}</div>
+								<div>
+									<a href="{{topic.link}}" target="_blank">{{topic.link}}</a>
+								</div>
+							</div>
+							<div flex="20" layout="column" layout-align="space-around center">
+								<button class="edit" ng-click="edit()">Edit</button>
+								<button ng-click="delete()" class="delete">Delete</button>
 							</div>
 						</div>
-						<div flex="20" layout="column" layout-align="space-around center">
-							<button class="edit" ng-click="edit()">Edit</button>
-							<button ng-click="delete()" class="delete">Delete</button>
-						</div>
-					</div>
-					<div ng-show="editing">
-						<div>{{new.topic}}</div>
-						<div>
-							<label>
-								<legend>Level</legend>
-								<input type="text" ng-model="new.level">
-							</label>
-							<label>
-								<legend>Description</legend>
-								<input type="text" ng-model="new.description">
-							</label>
-							<label>
-								<legend>Link of related project</legend>
-								<input type="text" ng-model="new.link">
-							</label>
+						<div ng-show="editing">
+							<div>{{new.topic}}</div>
 							<div>
-								<button>Save</button>
-								<button ng-click="edit()">Cancel</button>
+								<label>
+									<legend>Level</legend>
+									<select required ng-model="new.level" style="width:150px;padding:5px 15px;background:#fafafa;border:solid 1px #cccccc;border-radius:3px;">
+										<option value="1">Beginner</option>
+										<option value="2">Learning</option>
+										<option value="3">Proeficient</option>
+										<option value="4">Advanced</option>
+										<option value="5">Expert</option>
+									</select>
+								</label>
+								<label>
+									<legend>Description</legend>
+									<input type="text" ng-model="new.description">
+								</label>
+								<label>
+									<legend>Link of related project</legend>
+									<input type="text" ng-model="new.link">
+								</label>
+								<div>
+									<button class="saveButton" ng-click="save()">Save</button>
+									<button class="whiteButton" ng-click="edit()">Cancel</button>
+								</div>
 							</div>
 						</div>
 					</div>
+				</form>
+			</div>
+		</div>
+		<div ng-controller="passwordCtrl" ng-switch-when="admin" class="settings">
+			<div class="title">Change password</div>
+			<form class="form">
+				<div ng-if="error" class="error">
+					{{error}}
+				</div>
+				<label>
+					<legend>Old password</legend>
+					<input required type="password" ng-model="user.old">
+				</label>
+				<label>
+					<legend>New password</legend>
+					<input type="password" ng-model="user.new">
+				</label>
+				<label>
+					<legend>Confirm new password</legend>
+					<input type="password" ng-model="user.confirm">
+				</label>
+				<div class>
+					<button class="whiteButton" ng-click="updatePassword()">Update password</button>
 				</div>
 			</form>
-			</div>
+		</div>
+		<div class="settings" ng-switch-when="security">
+			<div class="title">Sessions</div>
 		</div>
 	</div>
 </div>

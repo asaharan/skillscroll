@@ -64,13 +64,18 @@
 		return true;
 	}
 
-	function match_password($username,$p1){
+	function match_password($username,$p1,$id=0){
 		$CI=&get_instance();
 		if(empty($username)){
 			return false;
 		}
+		$given='username';
 
-		$password_hash=$CI->db->select('password')->where('username',$username)->get('users');
+		if($id==1){
+			$given='id';
+		}
+
+		$password_hash=$CI->db->select('password')->where($given,$username)->get('users');
 		if($CI->db->affected_rows()!=1){
 			return false;
 		}
@@ -97,10 +102,10 @@
 		$signuptoken=generateRandomString();
 		// echo $signuptoken;
 
-		$salt=generateRandomString(24);
+		// $salt=generateRandomString(24);
 
-		$password=password_hash($signuptoken,PASSWORD_BCRYPT,array('salt'=>$salt));
-
+		// $password=password_hash($signuptoken,PASSWORD_BCRYPT,array('salt'=>$salt));
+		$password=hash_password($signuptoken);
 		$credentials=array('username'=>$username,'email'=>$username.'@iitk.ac.in','password'=>$password,'name'=>$name,'phone'=>$phone,'facebook'=>$fb);
 
 		$CI->db->insert('users',$credentials);
@@ -167,11 +172,28 @@
 			return false;
 		}
 
-		$result=$CI->db->select('id,username,name,email,phone,facebook,address')->get_where('users',array('id'=>$user_id));
+		$result=$CI->db->select('id,username,alternate_email,name,email,phone,facebook,address')->get_where('users',array('id'=>$user_id));
 		if($result->num_rows()!=1){
 			// echo $result->num_rows().$user_id;
 			return false;
 		}
 
 		return $result->row();
+	}
+	function updatepassword($user_id,$old_pass,$new_pass){
+		$CI=&get_instance();
+		if(!match_password($user_id,$old_pass,1)){
+			return false;
+		}
+		$password=hash_password($new_pass);
+
+		$credentials=array('password'=>$password);
+
+		$CI->db->where('id',$user_id)->update('users',$credentials);
+		return true;
+	}
+
+	function hash_password($pass){
+		$salt=generateRandomString(24);
+		return password_hash($pass,PASSWORD_BCRYPT,array('salt'=>$salt));
 	}
