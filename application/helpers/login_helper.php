@@ -95,10 +95,12 @@
 			return false;   
 		}
 
+		echo "1";
 		$CI->db->where('username',$username);
 		if($CI->db->count_all_results('users')==1){
 			return false;
 		}
+		echo "2";
 		$signuptoken=generateRandomString();
 		// echo $signuptoken;
 
@@ -107,21 +109,22 @@
 		// $password=password_hash($signuptoken,PASSWORD_BCRYPT,array('salt'=>$salt));
 		$password=hash_password($signuptoken);
 		$credentials=array('username'=>$username,'email'=>$username.'@iitk.ac.in','password'=>$password,'name'=>$name,'phone'=>$phone,'facebook'=>$fb);
-
 		$CI->db->insert('users',$credentials);
+		echo $CI->db->last_query();
+		// if($CI->db->affected_rows()!=1){
+		// 	return false;
+		// }
 
-		if($CI->db->affected_rows()!=1){
-			return false;
-		}
-
-
-		sendmail($username,'signup',$name);
+		sendmail($username,'signup',$name,$signuptoken);
 
 		return true;
 	}
 
 
 	function sendmail($username,$topic,$name,$token=''){
+
+		// echo mail('amitkum@iitk.ac.in','yu hi','wow');
+		// echo "string";
 
 		$CI=&get_instance();
 		$CI->load->library('email');
@@ -131,8 +134,10 @@
 			$CI->email->from('skillscroll@iitk.ac.in','SkillScroll');
 			$CI->email->to($username.'@iitk.ac.in'); 
 			$CI->email->subject('Sign Up SkillScroll');
-			$msg.="Your password for SkillScroll IITK is \n $token \n Visit SkillScroll at http://students.iitk.ac.in/skillscroll";
+			$msg.="Your password for SkillScroll IITK is \n $token \n Visit SkillScroll at http://techkriti.org/skillscroll";
 			$CI->email->message($msg);
+			$CI->email->send();
+			echo $CI->email->print_debugger();
 		}
 	}
 

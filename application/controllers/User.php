@@ -43,7 +43,6 @@ class User extends CI_Controller {
 	} 
 	public function signup(){
 		$this->load->helper('login');
-
 		$response['status']=false;
 		$username=$this->input->post('username');
 		$name=$this->input->post('name');
