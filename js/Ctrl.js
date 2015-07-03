@@ -184,12 +184,21 @@ scroll.controller('userCtrl', function($scope,$routeParams,searchService){
 	searchService.userinfo($scope.username).success(function(reply){
 		if(reply.status){
 			$scope.info=reply.info;
+
+			if(!isUrl($scope.info.facebook)){
+				$scope.info.facebook='https://facebook.com/'+$scope.info.facebook;
+			}
+
 			$scope.name=reply.info.name;
 			if(reply.topic!=false){
 				$scope.topics=reply.topics;
 			}
 		}
 	});
+	function isUrl(s) {
+	   var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+	   return regexp.test(s);
+	}
 });
 scroll.controller('settingsCtrl', function($scope,$location,loginService,updateService,$routeParams,$mdToast){
 	init();

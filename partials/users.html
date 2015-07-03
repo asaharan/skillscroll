@@ -4,7 +4,7 @@
 			{{name}} {{info.about}}
 		</div>
 		<div>
-			<a ng-href="{{info.facebook}}">Facebook</a>
+			<a target="_blank" ng-href="{{info.facebook}}">Facebook</a>
 		</div>
 		<div ng-show="true">
 			<div><b>Email:</b> {{info.email}}<span ng-if="info.alternate_email">, {{info.alternate_email}}</span></div>
@@ -12,6 +12,9 @@
 			<div ng-if="info.address"><b>Address:</b> {{info.address}}</div>
 		</div>
 	</div>
+	<br>
+	<hr>
+	<br>
 	<div ng-repeat="t in topics">
 		<div>
 			{{getLevelTag(t.level)}} in <a href="topics/{{t.topic}}">{{t.topic}}</a>

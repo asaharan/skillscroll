@@ -95,12 +95,10 @@
 			return false;   
 		}
 
-		echo "1";
 		$CI->db->where('username',$username);
 		if($CI->db->count_all_results('users')==1){
 			return false;
 		}
-		echo "2";
 		$signuptoken=generateRandomString();
 		// echo $signuptoken;
 
@@ -110,10 +108,10 @@
 		$password=hash_password($signuptoken);
 		$credentials=array('username'=>$username,'email'=>$username.'@iitk.ac.in','password'=>$password,'name'=>$name,'phone'=>$phone,'facebook'=>$fb);
 		$CI->db->insert('users',$credentials);
-		echo $CI->db->last_query();
-		// if($CI->db->affected_rows()!=1){
-		// 	return false;
-		// }
+		
+		if($CI->db->affected_rows()!=1){
+			return false;
+		}
 
 		sendmail($username,'signup',$name,$signuptoken);
 
@@ -122,10 +120,6 @@
 
 
 	function sendmail($username,$topic,$name,$token=''){
-
-		// echo mail('amitkum@iitk.ac.in','yu hi','wow');
-		// echo "string";
-
 		$CI=&get_instance();
 		$CI->load->library('email');
 		$msg="Dear $name \n";
