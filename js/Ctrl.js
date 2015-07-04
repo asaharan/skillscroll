@@ -185,10 +185,11 @@ scroll.controller('userCtrl', function($scope,$routeParams,searchService){
 		if(reply.status){
 			$scope.info=reply.info;
 
-			if(!isUrl($scope.info.facebook)){
-				$scope.info.facebook='https://facebook.com/'+$scope.info.facebook;
+			if(!$scope.info.facebook==''){
+				if(!isUrl($scope.info.facebook)){
+					$scope.info.facebook='https://facebook.com/'+$scope.info.facebook;
+				}
 			}
-
 			$scope.name=reply.info.name;
 			if(reply.topic!=false){
 				$scope.topics=reply.topics;

@@ -122,16 +122,15 @@
 	function sendmail($username,$topic,$name,$token=''){
 		$CI=&get_instance();
 		$CI->load->library('email');
-		$msg="Dear $name \n";
+		$msg="Welcome $name \n";
 
 		if($topic=='signup'){
 			$CI->email->from('skillscroll@iitk.ac.in','SkillScroll');
 			$CI->email->to($username.'@iitk.ac.in'); 
 			$CI->email->subject('Sign Up SkillScroll');
-			$msg.="Your password for SkillScroll IITK is \n $token \n Visit SkillScroll at http://techkriti.org/skillscroll";
+			$msg.="Your password for SkillScroll IITK is \n$token\n Visit SkillScroll at http://techkriti.org/skillscroll";
 			$CI->email->message($msg);
 			$CI->email->send();
-			echo $CI->email->print_debugger();
 		}
 	}
 

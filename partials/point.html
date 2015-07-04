@@ -3,9 +3,9 @@
 		<div><b>{{topic}}</b></div>
 		<div ng-if="description">{{description}}</div>
 	</div>
-	<div class="container">
+	<div ng-hide="true" class="container">
 		<div class="leveler">
-			<div class="title">Peoples who know about <b>{{topic}}</b></div>
+			<div class="title">People who know about <b>{{topic}}</b></div>
 			<div class="list">
 				<div class="item" ng-repeat="p in people | orderBy:'-level'">
 					<div><a class="username" href="users/{{p.username}}"><b>{{p.name}}</b></a> <span class="level _{{p.level}}">{{getLevelTag(p.level)}}</span></div>
@@ -33,6 +33,19 @@
 					{{r.topic}}
 				</a>
 			</div>
+		</div>
+	</div>
+
+	<div class="jist" flex="60" layout="column">
+		<div class="list-item title">
+			People who know about {{topic}}
+		</div>
+		<div class="list-item _level{{t.level}}" layout="column" ng-repeat="t in people">
+			<div layout="row">
+				<a href="users/{{t.username}}"class="topic">{{t.name}} ({{getLevelTag(t.level)}})</a>
+			</div>
+			<div>{{t.description}}</div>
+			<a class="topic" href="{{t.link}}">Project link</a>
 		</div>
 	</div>
 </div>

@@ -1,29 +1,36 @@
 <div class="user">
-	<div class="info">
-		<div>
-			{{name}} {{info.about}}
+	<div layout="column" class="info">
+		<div layout="row" class="about-box">
+			<span class="avtar">
+				{{name | limitTo:1}}
+			</span>
+			<div class="inform" layout="column">
+				<span class="name">{{name}}</span>
+				<div>{{info.about}}</div>
+			</div>
 		</div>
-		<div>
-			<a target="_blank" ng-href="{{info.facebook}}">Facebook</a>
-		</div>
-		<div ng-show="true">
-			<div><b>Email:</b> {{info.email}}<span ng-if="info.alternate_email">, {{info.alternate_email}}</span></div>
-			<div ng-if="info.phone"><b>Phone No.:</b> {{info.phone}}</div>
-			<div ng-if="info.address"><b>Address:</b> {{info.address}}</div>
+		<div layout="row" class="tile" ng-show="true">
+			<div class="contact" flex="50">
+				<div class="title">Contact Information</div>
+				<a target="_blank" ng-if="info.facebook" class="fb-link" ng-href="{{info.facebook}}">Facebook</a>
+				<div layout="row"><b flex="30" class="legend">Primary email</b> {{info.email}}</div>
+				<div layout="row" ng-if="info.alternate_email"><b flex="30" class="legend">Secondary email</b> {{info.alternate_email}}</div>
+				<div ng-if="info.phone" layout="row"><b flex="30" class="legend">Phone</b> {{info.phone}}</div>
+				<div ng-if="info.address" layout="row"><b flex="30" class="legend">Address</b> {{info.address}}</div>
+			</div>
 		</div>
 	</div>
-	<br>
-	<hr>
-	<br>
-	<div ng-repeat="t in topics">
-		<div>
-			{{getLevelTag(t.level)}} in <a href="topics/{{t.topic}}">{{t.topic}}</a>
+	
+	<div class="jist" flex="60" layout="column">
+		<div class="list-item title">
+			Topics {{name}} know about
 		</div>
-		<div ng-if="t.description">
-			{{t.description}}
-		</div>
-		<div>
-			<a ng-if="t.link" target="_blank" href="{{t.link}}" class="linky">Project link</a>
+		<div class="list-item _level{{t.level}}" layout="column" ng-repeat="t in topics">
+			<div layout="row">
+				<a href="topics/{{t.topic}}/{{t.topic_id}}"class="topic">{{t.topic}} ({{getLevelTag(t.level)}})</a>
+			</div>
+			<div>{{t.description}}</div>
+			<a class="topic" href="{{t.link}}">Project link</a>
 		</div>
 	</div>
 </div>
