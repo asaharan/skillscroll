@@ -239,8 +239,38 @@ scroll.controller('settingsCtrl', function($scope,$location,loginService,updateS
 		}
 	}
 	$scope.newTopicCtrl=function($scope,updateService,$timeout){
+
+		$scope.topic={level:1};
+
 		$scope.addTopic=function(){
 			updateService.addTopic($scope.topic).success(function(reply){
+
+				if(!reply.login){
+					$mdToast.show(
+						$mdToast.simple()
+						.content('Please login first!')
+						.position('bottom left')
+						.hideDelay(4000)
+						);
+				}
+
+				if (reply.status) {
+					$mdToast.show(
+						$mdToast.simple()
+						.content('Successfully added '+$scope.topic.topic+' to your knowledge!')
+						.position('bottom left')
+						.hideDelay(4000)
+						);
+					fetchtopics();
+					$scope.topic=[];
+				}else{
+					$mdToast.show(
+						$mdToast.simple()
+						.content('Looks like you have already added this topic!')
+						.position('bottom left')
+						.hideDelay(4000)
+					);
+				}
 			});
 		}
 	}
@@ -249,7 +279,22 @@ scroll.controller('settingsCtrl', function($scope,$location,loginService,updateS
 		var f=0;
 		$scope.delete=function(){
 			updateService.deleteTopic($scope.topic.id).success(function(reply){
-				
+				if(reply.status){
+					fetchtopics();
+					$mdToast.show(
+						$mdToast.simple()
+						.content('Successfully removed '+ $scope.topic.topic+'!')
+						.position('bottom left')
+						.hideDelay(4000)
+					);
+				}else{
+					$mdToast.show(
+						$mdToast.simple()
+						.content('Problem removing '+ $scope.topic.topic+'!')
+						.position('bottom left')
+						.hideDelay(4000)
+					);
+				}
 			});
 		}
 		$scope.edit=function(){

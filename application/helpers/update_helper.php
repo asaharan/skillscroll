@@ -29,7 +29,11 @@
 		$CI=&get_instance();
 		$crede=array('user_id'=>$user_id,'id'=>$iid);
 		$CI->db->where($crede)->delete('user_topics');
-		echo $CI->db->affected_rows().$user_id;
+		if($CI->db->affected_rows()==1){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	function updateTopic($user_id,$id,$level='',$description='',$link=""){

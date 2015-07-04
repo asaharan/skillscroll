@@ -56,7 +56,8 @@ class Update extends CI_Controller {
 		$user_id=userid();
 		$id=$this->input->post('id');
 		$this->load->helper('update');
-		deleteTopic($user_id,$id);
+		$response['status']=deleteTopic($user_id,$id);
+		echo json_encode($response);
 	}
 
 	public function addTopic(){
@@ -86,7 +87,8 @@ class Update extends CI_Controller {
 			$link=$this->input->post('link');
 		}
 
-		addUserTopic($user_id,$topic,$level,$description,$link);
+		$response['status']=addUserTopic($user_id,$topic,$level,$description,$link);
+		echo json_encode($response);
 	}
 	public function updateTopic(){
 		$response['login']=false;

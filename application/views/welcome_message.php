@@ -4,14 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en" ng-app="scroll" ng-controller="mainCtrl">
 <head>
 	<meta charset="utf-8">
-	<title>Skillscroll</title>
+	<title>Techkriti explore</title>
+	<meta name="description" content="Explore Techkriti">
+	<meta name="fragment" content="!">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>css/style.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>components/angular-material/angular-material.min.css">
 	<base href="<?php echo base_url() ?>" />
 </head>
 <body>
 	<div class="topbar">
-		<a href="<?php echo base_url() ?>" class="brand"><span class="skill">Skill</span><span class="scroll">Scroll</span></a>
+		<a href="<?php echo base_url() ?>" class="brand"><span class="skill">Explore</span><span class="scroll"></span></a>
 		<div class="swp">
 			<form action="search/" class="main-form" autocomplete="off">
 				<input class="main-input" type="text" name="q" placeholder="Search for people or some topic">

@@ -127,8 +127,8 @@
 		if($topic=='signup'){
 			$CI->email->from('skillscroll@iitk.ac.in','SkillScroll');
 			$CI->email->to($username.'@iitk.ac.in'); 
-			$CI->email->subject('Sign Up SkillScroll');
-			$msg.="Your password for SkillScroll IITK is \n$token\n Visit SkillScroll at http://techkriti.org/skillscroll";
+			$CI->email->subject('Welcome to SkillScroll');
+			$msg.="Your password for SkillScroll IITK is\n$token\nVisit SkillScroll at ".base_url();
 			$CI->email->message($msg);
 			$CI->email->send();
 		}

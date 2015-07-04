@@ -52,8 +52,8 @@
 					</label>
 					<label>
 						<legend>Level *</legend>
-						<select required ng-model="topic.level" style="width:150px;padding:5px 15px;background:#fafafa;border:solid 1px #cccccc;border-radius:3px;">
-							<option value="1">Beginner</option>
+						<select ng-model="topic.level" style="width:150px;padding:5px 15px;background:#fafafa;border:solid 1px #cccccc;border-radius:3px;">
+							<option ng-selected="true" value="1">Beginner</option>
 							<option value="2">Learning</option>
 							<option value="3">Proeficient</option>
 							<option value="4">Advanced</option>
