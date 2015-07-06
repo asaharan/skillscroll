@@ -1,4 +1,4 @@
-<md-dialog flex="60" aria-label="Sign Up">
+<md-dialog aria-label="Sign Up">
   <form>
   <md-toolbar>
     <div class="md-toolbar-tools">
@@ -9,26 +9,12 @@
 
 
   <md-dialog-content layout="column">
-    <md-content>
-      <div>
-        If your mail is amit@iitk.ac.in then write amit. We will you sent you an email for confirmation
-      </div>
-      <md-input-container flex md-no-float>
-        <input placeholder="Enter your username" ng-model="user.username">
-      </md-input-container>
-
-      <md-input-container flex md-no-float>
-        <input placeholder="Full Name" ng-model="user.name">
-      </md-input-container>
-
-      <md-input-container flex md-no-float>
-        <input placeholder="phone" ng-model="user.phone">
-      </md-input-container>
-
-      <md-input-container flex md-no-float>
-        <input placeholder="Facebook username" ng-model="user.facebook">
-      </md-input-container>
-    </md-content>
+    <div>
+    We will you sent you an email for confirmation.
+    If your email is amit@iitk.ac.in then use amit
+    </div>
+    <input placeholder="Enter your username" ng-model="user.username" class="form-input">
+    <input placeholder="Full Name" ng-model="user.name" class="form-input">
     <md-button ng-click="signup()" class="md-primary md-raised" style="margin:0" flex flex-md="100">
           Sign Up
     </md-button>

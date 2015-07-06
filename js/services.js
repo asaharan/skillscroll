@@ -66,7 +66,7 @@ scroll.factory('updateService',function($http){
 		return $http.post('update/profile',data);
 	}
 	toreturn.deleteTopic=function(id){
-		return $http.post('update/deleteTopic',{id});
+		return $http.post('update/deleteTopic',{id:id});
 	}
 	toreturn.addTopic=function(data){
 		return $http.post('update/addTopic',data);

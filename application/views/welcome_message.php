@@ -1,14 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-<html lang="en" ng-app="scroll" ng-controller="mainCtrl">
+<html lang="en" data-ng-app="scroll" ng-controller="mainCtrl">
 <head>
 	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="http://techkriti.org/img/favicon.ico">
 	<title>Techkriti explore</title>
 	<meta name="description" content="Explore Techkriti">
 	<meta name="fragment" content="!">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>css/style.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>components/angular-material/angular-material.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>css/style.css">
 	<base href="<?php echo base_url() ?>" />
 </head>
 <body>

@@ -1885,7 +1885,6 @@ html {
 
 body {
   margin: 0;
-  background-color: #e5e5e5;
   color: #505050;
   font-family: roboto-regular;
   min-width: 960px; }
@@ -1893,6 +1892,9 @@ body {
 a {
   text-decoration: none;
   color: inherit; }
+
+md-toast {
+  position: fixed; }
 
 .topbar {
   background-color: #fff;
@@ -1948,6 +1950,9 @@ a {
         height: 30px;
         border: solid 1px #E0D8D8;
         border-radius: 3px; }
+        .topbar .swp .main-form .main-input:focus {
+          border-color: #51a7e8;
+          box-shadow: rgba(0, 0, 0, 0.07451) 0px 1px 2px 0px inset, rgba(81, 167, 232, 0.49804) 0px 0px 5px 0px; }
   .topbar .uac {
     position: relative;
     float: left;
@@ -2390,15 +2395,17 @@ ng-view {
   width: 60%;
   border: solid 1px #dddddd;
   border-radius: 3px;
-  margin-bottom: 20px; }
-  .jist .title {
-    background: #f5f5f5;
-    color: #333; }
+  margin-bottom: 20px;
+  border-left: none; }
   .jist .list-item {
     padding: 5px 10px 7px;
-    border-bottom: solid 1px #dddddd; }
+    border-bottom: solid 1px #dddddd;
+    border-left: solid 3px; }
     .jist .list-item:hover {
       background: #fafafa; }
+    .jist .list-item.title {
+      background: #f5f5f5;
+      color: #333; }
     .jist .list-item .topic {
       color: #4078c0;
       font-size: 14px;
@@ -2406,17 +2413,35 @@ ng-view {
       font-family: roboto; }
     .jist .list-item:last-child {
       border-bottom: none; }
-    .jist .list-item._level {
-      border-left: solid 2px transparent; }
-    .jist .list-item._level1 {
-      border-left: solid 2px #2b7489; }
-    .jist .list-item._level2 {
-      border-left: solid 2px #00B4AB; }
-    .jist .list-item._level3 {
-      border-left: solid 2px #563d7c; }
-    .jist .list-item._level4 {
-      border-left: solid 2px #f1e05a; }
-    .jist .list-item._level5 {
-      border-left: solid 2px #e44b23; }
+    .jist .list-item:nth-child(5n+2) {
+      border-left-color: #f1e05a; }
+    .jist .list-item:nth-child(5n+3) {
+      border-left-color: #49DAFC; }
+    .jist .list-item:nth-child(5n+4) {
+      border-left-color: #00B4AB; }
+    .jist .list-item:nth-child(5n) {
+      border-left-color: #064f83; }
+    .jist .list-item:nth-child(5n+1) {
+      border-left-color: #e44b23; }
+    .jist .list-item:first-child {
+      border-left: solid 1px #dddddd; }
+
+input {
+  border: solid 1px #cccccc;
+  border-radius: 3px;
+  padding: 7px 8px;
+  height: 34px;
+  box-sizing: border-box;
+  width: 440px;
+  outline: none;
+  background-color: #fafafa;
+  display: block; }
+  input:focus {
+    background: #fff;
+    border-color: #51a7e8;
+    box-shadow: rgba(0, 0, 0, 0.07451) 0px 1px 2px 0px inset, rgba(81, 167, 232, 0.49804) 0px 0px 5px 0px; }
+
+.form-input {
+  margin-bottom: 15px; }
 
 /*# sourceMappingURL=style.css.map */

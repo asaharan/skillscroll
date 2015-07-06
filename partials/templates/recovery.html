@@ -9,12 +9,9 @@
 
 
   <md-dialog-content layout="column">
-    <md-content layout-padding>
-        If your mail is amit@iitk.ac.in then write amit.
-    </md-content>
-    <md-input-container flex md-no-float>
-      <input placeholder="Enter your username" ng-model="user.email">
-    </md-input-container>
+    
+    <div>If your mail is amit@iitk.ac.in then write amit.</div>
+    <input placeholder="Enter your username" ng-model="user.email" class="form-input">
     <md-button ng-click="signup()" class="md-primary md-raised" style="margin:0" flex flex-md="100">
           Reset password
     </md-button>

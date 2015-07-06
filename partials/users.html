@@ -1,11 +1,11 @@
 <div class="user">
 	<div layout="column" class="info">
 		<div layout="row" class="about-box">
-			<span class="avtar">
+			<a href="./users/{{username}}" class="avtar">
 				{{name | limitTo:1}}
-			</span>
+			</a>
 			<div class="inform" layout="column">
-				<span class="name">{{name}}</span>
+				<a ng-href="./users/{{username}}" class="name">{{name}}</a>
 				<div>{{info.about}}</div>
 			</div>
 		</div>
@@ -27,10 +27,10 @@
 		</div>
 		<div class="list-item _level{{t.level}}" layout="column" ng-repeat="t in topics">
 			<div layout="row">
-				<a href="topics/{{t.topic}}/{{t.topic_id}}"class="topic">{{t.topic}} ({{getLevelTag(t.level)}})</a>
+				<a href="topics/{{t.topic}}/{{t.topic_id}}" class="topic">{{t.topic}} ({{getLevelTag(t.level)}})</a>
 			</div>
 			<div>{{t.description}}</div>
-			<a class="topic" href="{{t.link}}">Project link</a>
+			<a class="topic" ng-hide="{{t.link==''}}" href="{{t.link}}">Project link</a>
 		</div>
 	</div>
 </div>
