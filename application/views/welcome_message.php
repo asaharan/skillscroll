@@ -21,12 +21,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</form>
 		</div>
 		<div ng-if="!loggedIn" ng-cloak class="uac">
-			<span ng-if="!loggedIn" ng-click="signup($event)" class="signup">Sign Up</span>
-			<span ng-if="!loggedIn" ng-click="login($event)" class="login">Login</span>
+			<div class="uac-in">
+				<span ng-if="!loggedIn" ng-click="signup($event)" class="signup">Sign Up</span>
+				<span ng-if="!loggedIn" ng-click="login($event)" class="login">Login</span>
+			</div>
 		</div>
 		<div ng-if="loggedIn" ng-cloak class="uac">
-			<a href="settings/profile" ng-if="loggedIn" ><i class="fa fa-cog"></i>{{userinfo.username}}</a>
-			<a href="#" ng-click="logout()"><i class="fa fa-sign-out"></i></a>
+			<div ng-show="login" class="userSettingsWrap saharan-dropdown">
+				<a href="#" class="set userloggedin">{{userinfo.name | first_name}}</a>
+				<div class="userActions">
+					<div class="arrow-up"></div>
+					<div class="arrow-up-bg"></div>
+					<div class="userActionInner">
+						<a href="users/{{userinfo.username}}">Your profile</a>
+						<a href="settings/topics">Topics</a>
+						<a href="settings/profile">Settings</a>
+						<a href="./" ng-click="logout()">Log out</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<ng-view></ng-view>
@@ -43,5 +56,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/Ctrl.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/services.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/directives.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/filters.js"></script>
 </body>
 </html>

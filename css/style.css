@@ -1904,7 +1904,8 @@ md-toast {
   width: 100%;
   line-height: 45px;
   z-index: 10;
-  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 -1px 6px 0px rgba(0, 0, 0, 0.2); }
   @media (max-width: 960px) {
     .topbar {
       width: 960px;
@@ -1949,7 +1950,8 @@ md-toast {
         font-family: roboto-regular;
         height: 30px;
         border: solid 1px #E0D8D8;
-        border-radius: 3px; }
+        border-radius: 3px;
+        font-size: 15px; }
         .topbar .swp .main-form .main-input:focus {
           border-color: #51a7e8;
           box-shadow: rgba(0, 0, 0, 0.07451) 0px 1px 2px 0px inset, rgba(81, 167, 232, 0.49804) 0px 0px 5px 0px; }
@@ -1958,24 +1960,169 @@ md-toast {
     float: left;
     text-align: right;
     width: 200px;
-    padding: 6px 10px 7px 0;
     line-height: 32px; }
-    .topbar .uac .login, .topbar .uac .signup {
-      position: relative;
-      display: inline-block;
-      height: 30px;
-      color: #ec6930;
-      border: solid 1px;
-      padding: 0 10px;
-      border-radius: 3px;
-      height: 100%;
-      cursor: pointer;
-      outline: none; }
-    .topbar .uac .signup {
-      color: #1876e8; }
+    .topbar .uac .uac-in {
+      padding: 6px 10px 7px 0; }
+      .topbar .uac .uac-in .login, .topbar .uac .uac-in .signup {
+        position: relative;
+        display: inline-block;
+        height: 30px;
+        color: #ec6930;
+        border: solid 1px;
+        padding: 0 10px;
+        border-radius: 3px;
+        height: 100%;
+        cursor: pointer;
+        outline: none; }
+      .topbar .uac .uac-in .signup {
+        color: #1876e8; }
     .topbar .uac a {
       color: #4b505a;
       padding: 5px 10px; }
+    .topbar .uac .userSettingsWrap {
+      height: 45px;
+      box-sizing: border-box;
+      display: inline-block;
+      position: relative;
+      border: solid 1px transparent;
+      border: none;
+      text-align: left;
+      font-size: 13px; }
+      .topbar .uac .userSettingsWrap.open, .topbar .uac .userSettingsWrap:hover {
+        background: rgba(243, 243, 247, 0.8); }
+      .topbar .uac .userSettingsWrap.open .set {
+        color: #727b8d; }
+      .topbar .uac .userSettingsWrap.open .userActions {
+        display: inline; }
+      .topbar .uac .userSettingsWrap .set {
+        display: block;
+        cursor: pointer;
+        padding: 8px 13px; }
+        .topbar .uac .userSettingsWrap .set:after {
+          margin-left: 5px;
+          content: "\f0dd";
+          font-family: fontAwesome;
+          font-size: 1.5em;
+          line-height: 1em; }
+      .topbar .uac .userSettingsWrap .userActions {
+        position: absolute;
+        float: right;
+        display: none;
+        right: 0;
+        top: 55px;
+        height: 0;
+        z-index: 5; }
+        .topbar .uac .userSettingsWrap .userActions .arrow-up {
+          position: absolute;
+          z-index: 15;
+          top: -8px;
+          right: 9px;
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid #fff; }
+        .topbar .uac .userSettingsWrap .userActions .arrow-up-bg {
+          position: absolute;
+          z-index: 14;
+          top: -9px;
+          right: 9px;
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid #d0d0d0; }
+        .topbar .uac .userSettingsWrap .userActions .userActionInner {
+          position: relative;
+          top: 0;
+          right: 0;
+          width: 160px;
+          background-color: #fff;
+          border: solid 1px #dddddd;
+          border-radius: 3px;
+          padding: 5px 0;
+          box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15); }
+          .topbar .uac .userSettingsWrap .userActions .userActionInner a {
+            color: #677184;
+            padding: 3px 20px;
+            height: 30px;
+            line-height: 22px;
+            display: block; }
+            .topbar .uac .userSettingsWrap .userActions .userActionInner a:hover {
+              background-color: #f5f5f5;
+              background-color: #EFF1F5;
+              color: #555555; }
+            .topbar .uac .userSettingsWrap .userActions .userActionInner a:last-child {
+              border-bottom: none; }
+    .topbar .uac .button {
+      -webkit-appearance: none;
+      -webkit-user-select: none;
+      align-items: flex-start;
+      background-attachment: scroll;
+      background-clip: border-box;
+      background-color: #08c65b;
+      background-image: none;
+      background-origin: padding-box;
+      background-size: auto;
+      border-bottom-color: white;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border-bottom-style: none;
+      border-bottom-width: 0px;
+      border-image-outset: 0px;
+      border-image-repeat: stretch;
+      border-image-slice: 100%;
+      border-image-source: none;
+      border-image-width: 1;
+      border-left-color: white;
+      border-left-style: none;
+      border-left-width: 0px;
+      border-right-color: white;
+      border-right-style: none;
+      border-right-width: 0px;
+      border-top-color: white;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      border-top-style: none;
+      border-top-width: 0px;
+      box-sizing: border-box;
+      color: white;
+      cursor: pointer;
+      display: inline-block;
+      font-family: Roboto, sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 300;
+      height: 36px;
+      letter-spacing: normal;
+      line-height: normal;
+      margin-bottom: 0px;
+      margin-left: 4px;
+      margin-right: 0px;
+      margin-top: 0px;
+      outline-color: white;
+      outline-style: none;
+      outline-width: 0px;
+      padding-bottom: 10px;
+      padding-left: 24px;
+      padding-right: 24px;
+      padding-top: 10px;
+      position: relative;
+      text-align: center;
+      text-indent: 0px;
+      text-rendering: auto;
+      text-shadow: none;
+      text-transform: uppercase;
+      transition-delay: 0s, 0s, 0s;
+      transition-duration: 0.18s, 0.18s, 0.18s;
+      transition-property: box-shadow, background, color;
+      transition-timing-function: ease-out, ease-out, ease-out;
+      white-space: nowrap;
+      width: 124.8125px;
+      word-spacing: 0px;
+      writing-mode: lr-tb;
+      -webkit-writing-mode: horizontal-tb; }
 
 ng-view {
   padding-top: 50px;
@@ -2058,6 +2205,7 @@ ng-view {
   margin: 7px 0;
   padding-top: 10px; }
   .intro a {
+    cursor: default;
     display: inline-block;
     width: 200px;
     height: 70px; }
@@ -2411,6 +2559,8 @@ ng-view {
       font-size: 14px;
       font-weight: bold;
       font-family: roboto; }
+    .jist .list-item .project_link {
+      font-weight: 500; }
     .jist .list-item:last-child {
       border-bottom: none; }
     .jist .list-item:nth-child(5n+2) {

@@ -2,7 +2,7 @@
 	<div layout="column" class="info">
 		<div layout="row" class="about-box">
 			<a href="./users/{{username}}" class="avtar">
-				{{name | limitTo:1}}
+				{{name | limitTo:1 | uppercase}}
 			</a>
 			<div class="inform" layout="column">
 				<a ng-href="./users/{{username}}" class="name">{{name}}</a>
@@ -30,7 +30,7 @@
 				<a href="topics/{{t.topic}}/{{t.topic_id}}" class="topic">{{t.topic}} ({{getLevelTag(t.level)}})</a>
 			</div>
 			<div>{{t.description}}</div>
-			<a class="topic" ng-hide="{{t.link==''}}" href="{{t.link}}">Project link</a>
+			<a class="topic project_link" ng-hide="{{t.link==''}}" href="{{t.link}}">Project link</a>
 		</div>
 	</div>
 </div>

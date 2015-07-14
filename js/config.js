@@ -3,7 +3,7 @@
 *
 * Description
 */
-var scroll=angular.module('scroll', ['ngRoute','ngAria','ngAnimate','ngMaterial']);
+var scroll=angular.module('scroll', ['ngRoute','ngAria','ngAnimate','ngMaterial','saharanFilters']);
 
 
 scroll.config(['$locationProvider','$httpProvider', function($locationProvider,$httpProvider) {
@@ -64,7 +64,7 @@ scroll.config(['$routeProvider',function($routeProvider) {
 		templateUrl:'partials/search.html',
 		controller:'searchCtrl'
 	}).
-	when('/users/:username',{
+	when('/users/:username/',{
 		templateUrl:'partials/users.html',
 		controller:'userCtrl'
 	}).
