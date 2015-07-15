@@ -8,7 +8,7 @@ scroll.controller('homeCtrl', function($scope,$routeParams,searchService){
 });
 
 
-scroll.controller('mainCtrl', function($scope,$rootScope,loginService,$mdDialog,$mdToast){
+scroll.controller('mainCtrl', function($scope,$rootScope,loginService,$mdDialog,$mdToast,eventService){
 	$scope.getLevelTag=function(id){
 		var level=['Beginner','Learning','Proficient','Advanced','Expert'];
 		if(id>0&&id<6){
@@ -16,6 +16,7 @@ scroll.controller('mainCtrl', function($scope,$rootScope,loginService,$mdDialog,
 		}
 		return 'Yet not set';
 	}
+	$scope.events=eventService.all();
 	$scope.username='amitkum';
 	$scope.loggedIn=false;
 	$scope.login=function(){

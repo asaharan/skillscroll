@@ -1881,7 +1881,9 @@
   border: solid 1px #dddddd; }
 
 html {
-  min-width: 960px; }
+  min-width: 960px;
+  overflow-y: scroll;
+  overflow-x: auto; }
 
 body {
   margin: 0;
@@ -1896,233 +1898,210 @@ a {
 md-toast {
   position: fixed; }
 
-.topbar {
-  background-color: #fff;
-  color: #b4b4b4;
+.topbar-wrap {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 3px 2px -2px rgba(200, 200, 200, 0.2);
+  border-top: solid 2px #FF6666;
   position: fixed;
-  height: 45px;
   width: 100%;
-  line-height: 45px;
   z-index: 10;
-  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 -1px 6px 0px rgba(0, 0, 0, 0.2); }
-  @media (max-width: 960px) {
-    .topbar {
-      width: 960px;
-      position: relative; } }
-  .topbar .brand {
+  background-color: #fefefe; }
+  .topbar-wrap .topbar {
+    width: 960px;
+    margin: 0 auto;
+    text-align: left;
+    color: #b4b4b4;
     position: relative;
-    float: left;
-    display: inline-block;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 0 10px;
-    width: 115px; }
-    .topbar .brand .skill {
-      color: #28bfd1; }
-    .topbar .brand .scroll {
-      color: #a09f9f; }
-  .topbar .swp {
-    float: left;
-    display: inline-block;
-    position: relative;
-    margin-left: 10px;
-    width: calc(100% - 327px);
-    height: inherit;
-    padding: 0 10px;
-    text-align: center; }
-    .topbar .swp .main-form {
+    height: 42px;
+    line-height: 42px; }
+    @media (max-width: 960px) {
+      .topbar-wrap .topbar {
+        width: 960px;
+        position: relative; } }
+    .topbar-wrap .topbar .brand {
       position: relative;
-      padding-top: 7px;
-      margin-left: 68px;
-      height: inherit; }
-      @media (max-width: 960px) {
-        .topbar .swp .main-form {
-          margin-left: 0; } }
-      .topbar .swp .main-form .main-input {
-        outline: none;
-        float: left;
-        display: inline-block;
-        width: 90%;
-        min-width: 200px;
-        max-width: 450px;
-        padding: 0 10px;
-        font-family: roboto-regular;
-        height: 30px;
-        border: solid 1px #E0D8D8;
-        border-radius: 3px;
-        font-size: 15px; }
-        .topbar .swp .main-form .main-input:focus {
-          border-color: #51a7e8;
-          box-shadow: rgba(0, 0, 0, 0.07451) 0px 1px 2px 0px inset, rgba(81, 167, 232, 0.49804) 0px 0px 5px 0px; }
-  .topbar .uac {
-    position: relative;
-    float: left;
-    text-align: right;
-    width: 200px;
-    line-height: 32px; }
-    .topbar .uac .uac-in {
-      padding: 6px 10px 7px 0; }
-      .topbar .uac .uac-in .login, .topbar .uac .uac-in .signup {
-        position: relative;
-        display: inline-block;
-        height: 30px;
-        color: #ec6930;
-        border: solid 1px;
-        padding: 0 10px;
-        border-radius: 3px;
-        height: 100%;
-        cursor: pointer;
-        outline: none; }
-      .topbar .uac .uac-in .signup {
-        color: #1876e8; }
-    .topbar .uac a {
-      color: #4b505a;
-      padding: 5px 10px; }
-    .topbar .uac .userSettingsWrap {
-      height: 45px;
-      box-sizing: border-box;
+      float: left;
       display: inline-block;
+      font-size: 22px;
+      font-weight: bold;
+      margin-right: 10px;
+      color: #FF6666; }
+      .topbar-wrap .topbar .brand:hover {
+        color: #ff3333; }
+    .topbar-wrap .topbar .uac {
       position: relative;
-      border: solid 1px transparent;
-      border: none;
-      text-align: left;
-      font-size: 13px; }
-      .topbar .uac .userSettingsWrap.open, .topbar .uac .userSettingsWrap:hover {
-        background: rgba(243, 243, 247, 0.8); }
-      .topbar .uac .userSettingsWrap.open .set {
-        color: #727b8d; }
-      .topbar .uac .userSettingsWrap.open .userActions {
-        display: inline; }
-      .topbar .uac .userSettingsWrap .set {
-        display: block;
-        cursor: pointer;
-        padding: 8px 13px; }
-        .topbar .uac .userSettingsWrap .set:after {
-          margin-left: 5px;
-          content: "\f0dd";
-          font-family: fontAwesome;
-          font-size: 1.5em;
-          line-height: 1em; }
-      .topbar .uac .userSettingsWrap .userActions {
-        position: absolute;
-        float: right;
-        display: none;
-        right: 0;
-        top: 55px;
-        height: 0;
-        z-index: 5; }
-        .topbar .uac .userSettingsWrap .userActions .arrow-up {
-          position: absolute;
-          z-index: 15;
-          top: -8px;
-          right: 9px;
-          width: 0;
-          height: 0;
-          border-left: 10px solid transparent;
-          border-right: 10px solid transparent;
-          border-bottom: 10px solid #fff; }
-        .topbar .uac .userSettingsWrap .userActions .arrow-up-bg {
-          position: absolute;
-          z-index: 14;
-          top: -9px;
-          right: 9px;
-          width: 0;
-          height: 0;
-          border-left: 10px solid transparent;
-          border-right: 10px solid transparent;
-          border-bottom: 10px solid #d0d0d0; }
-        .topbar .uac .userSettingsWrap .userActions .userActionInner {
+      float: right;
+      text-align: right;
+      line-height: 32px; }
+      .topbar-wrap .topbar .uac .uac-in {
+        padding: 6px 10px 7px 0; }
+        .topbar-wrap .topbar .uac .uac-in .login, .topbar-wrap .topbar .uac .uac-in .signup {
           position: relative;
-          top: 0;
-          right: 0;
-          width: 160px;
-          background-color: #fff;
-          border: solid 1px #dddddd;
+          display: inline-block;
+          height: 30px;
+          color: #ec6930;
+          border: solid 1px;
+          padding: 0 10px;
           border-radius: 3px;
-          padding: 5px 0;
-          box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15); }
-          .topbar .uac .userSettingsWrap .userActions .userActionInner a {
-            color: #677184;
-            padding: 3px 20px;
-            height: 30px;
-            line-height: 22px;
-            display: block; }
-            .topbar .uac .userSettingsWrap .userActions .userActionInner a:hover {
-              background-color: #f5f5f5;
-              background-color: #EFF1F5;
-              color: #555555; }
-            .topbar .uac .userSettingsWrap .userActions .userActionInner a:last-child {
-              border-bottom: none; }
-    .topbar .uac .button {
-      -webkit-appearance: none;
-      -webkit-user-select: none;
-      align-items: flex-start;
-      background-attachment: scroll;
-      background-clip: border-box;
-      background-color: #08c65b;
-      background-image: none;
-      background-origin: padding-box;
-      background-size: auto;
-      border-bottom-color: white;
-      border-bottom-left-radius: 3px;
-      border-bottom-right-radius: 3px;
-      border-bottom-style: none;
-      border-bottom-width: 0px;
-      border-image-outset: 0px;
-      border-image-repeat: stretch;
-      border-image-slice: 100%;
-      border-image-source: none;
-      border-image-width: 1;
-      border-left-color: white;
-      border-left-style: none;
-      border-left-width: 0px;
-      border-right-color: white;
-      border-right-style: none;
-      border-right-width: 0px;
-      border-top-color: white;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-      border-top-style: none;
-      border-top-width: 0px;
-      box-sizing: border-box;
-      color: white;
-      cursor: pointer;
-      display: inline-block;
-      font-family: Roboto, sans-serif;
-      font-size: 14px;
-      font-style: normal;
-      font-variant: normal;
-      font-weight: 300;
-      height: 36px;
-      letter-spacing: normal;
-      line-height: normal;
-      margin-bottom: 0px;
-      margin-left: 4px;
-      margin-right: 0px;
-      margin-top: 0px;
-      outline-color: white;
-      outline-style: none;
-      outline-width: 0px;
-      padding-bottom: 10px;
-      padding-left: 24px;
-      padding-right: 24px;
-      padding-top: 10px;
-      position: relative;
-      text-align: center;
-      text-indent: 0px;
-      text-rendering: auto;
-      text-shadow: none;
-      text-transform: uppercase;
-      transition-delay: 0s, 0s, 0s;
-      transition-duration: 0.18s, 0.18s, 0.18s;
-      transition-property: box-shadow, background, color;
-      transition-timing-function: ease-out, ease-out, ease-out;
-      white-space: nowrap;
-      width: 124.8125px;
-      word-spacing: 0px;
-      writing-mode: lr-tb;
-      -webkit-writing-mode: horizontal-tb; }
+          height: 100%;
+          cursor: pointer;
+          outline: none; }
+        .topbar-wrap .topbar .uac .uac-in .signup {
+          color: #1876e8; }
+      .topbar-wrap .topbar .uac a {
+        color: #4b505a;
+        padding: 5px 10px; }
+      .topbar-wrap .topbar .uac .userSettingsWrap {
+        height: 42px;
+        box-sizing: border-box;
+        display: inline-block;
+        position: relative;
+        border: solid 1px transparent;
+        border: none;
+        text-align: left;
+        font-size: 13px; }
+        .topbar-wrap .topbar .uac .userSettingsWrap.open, .topbar-wrap .topbar .uac .userSettingsWrap:hover {
+          background: #eff1f5; }
+        .topbar-wrap .topbar .uac .userSettingsWrap.open .set {
+          color: #727b8d; }
+        .topbar-wrap .topbar .uac .userSettingsWrap.open .userActions {
+          display: inline;
+          opacity: 1;
+          transform: scale(1); }
+        .topbar-wrap .topbar .uac .userSettingsWrap .set {
+          display: block;
+          cursor: pointer; }
+          .topbar-wrap .topbar .uac .userSettingsWrap .set:after {
+            margin-left: 5px;
+            content: "\f0dd";
+            font-family: fontAwesome;
+            font-size: 1.5em;
+            line-height: 1em; }
+        .topbar-wrap .topbar .uac .userSettingsWrap.display-none .userActions {
+          display: none; }
+        .topbar-wrap .topbar .uac .userSettingsWrap .userActions {
+          position: absolute;
+          float: right;
+          right: 0;
+          top: 55px;
+          height: 0;
+          z-index: 5;
+          transition: all 200ms cubic-bezier(0.24, 0.22, 0.015, 1.56), opacity 100ms linear;
+          opacity: 0;
+          transform: scale(0.5);
+          transform-origin: 80px 0; }
+          .topbar-wrap .topbar .uac .userSettingsWrap .userActions .arrow-up {
+            position: absolute;
+            z-index: 15;
+            top: -8px;
+            right: 9px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #fff; }
+          .topbar-wrap .topbar .uac .userSettingsWrap .userActions .arrow-up-bg {
+            position: absolute;
+            z-index: 14;
+            top: -9px;
+            right: 9px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #cacaca; }
+          .topbar-wrap .topbar .uac .userSettingsWrap .userActions .userActionInner {
+            position: relative;
+            top: 0;
+            right: 0;
+            width: 160px;
+            background-color: #fff;
+            border: solid 1px #dddddd;
+            border-radius: 3px;
+            padding: 5px 0;
+            box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15); }
+            .topbar-wrap .topbar .uac .userSettingsWrap .userActions .userActionInner a {
+              color: #677184;
+              padding: 3px 20px;
+              height: 30px;
+              line-height: 22px;
+              display: block; }
+              .topbar-wrap .topbar .uac .userSettingsWrap .userActions .userActionInner a:hover {
+                background-color: #f5f5f5;
+                background-color: #EFF1F5;
+                color: #555555; }
+              .topbar-wrap .topbar .uac .userSettingsWrap .userActions .userActionInner a:last-child {
+                border-bottom: none; }
+      .topbar-wrap .topbar .uac .button {
+        -webkit-appearance: none;
+        -webkit-user-select: none;
+        align-items: flex-start;
+        background-attachment: scroll;
+        background-clip: border-box;
+        background-color: #08c65b;
+        background-image: none;
+        background-origin: padding-box;
+        background-size: auto;
+        border-bottom-color: white;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-bottom-style: none;
+        border-bottom-width: 0px;
+        border-image-outset: 0px;
+        border-image-repeat: stretch;
+        border-image-slice: 100%;
+        border-image-source: none;
+        border-image-width: 1;
+        border-left-color: white;
+        border-left-style: none;
+        border-left-width: 0px;
+        border-right-color: white;
+        border-right-style: none;
+        border-right-width: 0px;
+        border-top-color: white;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border-top-style: none;
+        border-top-width: 0px;
+        box-sizing: border-box;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-family: Roboto, sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 300;
+        height: 36px;
+        letter-spacing: normal;
+        line-height: normal;
+        margin-bottom: 0px;
+        margin-left: 4px;
+        margin-right: 0px;
+        margin-top: 0px;
+        outline-color: white;
+        outline-style: none;
+        outline-width: 0px;
+        padding-bottom: 10px;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 10px;
+        position: relative;
+        text-align: center;
+        text-indent: 0px;
+        text-rendering: auto;
+        text-shadow: none;
+        text-transform: uppercase;
+        transition-delay: 0s, 0s, 0s;
+        transition-duration: 0.18s, 0.18s, 0.18s;
+        transition-property: box-shadow, background, color;
+        transition-timing-function: ease-out, ease-out, ease-out;
+        white-space: nowrap;
+        width: 124.8125px;
+        word-spacing: 0px;
+        writing-mode: lr-tb;
+        -webkit-writing-mode: horizontal-tb; }
 
 ng-view {
   padding-top: 50px;
@@ -2237,7 +2216,7 @@ ng-view {
     background: linear-gradient(to right, #FFCC00, #1876E8); }
 
 .extra {
-  margin: 20px 0 10px 0; }
+  margin: 10px 0 10px 0; }
   .extra .material {
     overflow: hidden;
     border-radius: 3px;
@@ -2518,7 +2497,7 @@ ng-view {
         border-top: solid 5px #4DBFD9;
         border-radius: 3px;
         padding: 7px 15px;
-        box-shadow: 0 2px 1px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.1);
         color: #404040; }
         .user .info .tile .contact .title {
           color: #333;
@@ -2570,9 +2549,9 @@ ng-view {
     .jist .list-item:nth-child(5n+4) {
       border-left-color: #00B4AB; }
     .jist .list-item:nth-child(5n) {
-      border-left-color: #064f83; }
+      border-left-color: #207CBD; }
     .jist .list-item:nth-child(5n+1) {
-      border-left-color: #e44b23; }
+      border-left-color: #E15084; }
     .jist .list-item:first-child {
       border-left: solid 1px #dddddd; }
 
@@ -2593,5 +2572,37 @@ input {
 
 .form-input {
   margin-bottom: 15px; }
+
+.techkriti-events {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border: solid 1px #f0f0f0;
+  color: #333; }
+  .techkriti-events .event {
+    position: relative;
+    margin: 0 29px;
+    height: 40px;
+    display: inline-block;
+    border-bottom: solid 0 transparent;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    transition: all 200ms ease; }
+    .techkriti-events .event:last-child:after {
+      background-color: transparent; }
+    .techkriti-events .event:after {
+      content: ' ';
+      width: 1px;
+      height: 20px;
+      position: absolute;
+      background-color: rgba(80, 80, 80, 0.44);
+      display: inline-block;
+      right: -27px;
+      top: 10px; }
+    .techkriti-events .event:hover {
+      height: 39px;
+      color: #4374E0;
+      border-bottom: solid 2px; }
 
 /*# sourceMappingURL=style.css.map */

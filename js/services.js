@@ -79,3 +79,20 @@ scroll.factory('updateService',function($http){
 	}
 	return toreturn;
 })
+scroll.factory('eventService',function(){
+	var toreturn=[];
+	var all=[
+		{name:'Robogames',display:'Robogames'},
+		{name:'IMP',display:'IMP'},
+		{name:'Business',display:'Business'},
+		{name:'EDEC',display:'EDEC'},
+		{name:'Zonals',display:'Zonals'},
+		{name:'Design',display:'Design'},
+		{name:'TakeOff',display:'Take off'},
+		{name:'SoftwareCorner',display:'Software Corner'}
+		];
+	toreturn.all=function(){
+		return all;
+	}
+	return toreturn;
+})

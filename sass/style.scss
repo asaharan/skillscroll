@@ -5,10 +5,9 @@ $roboto-font-path: "../components/roboto-fontface/fonts";
 
 $bgColor:rgb(229,229,229);
 $mainColor:rgb(80,80,80);
-$themeColor:#fff;
+$themeColor:#fefefe;
 $themeTextColor:rgb(180,180,180);
-$skillColor:rgb(40, 191, 209);
-$scrollColor:rgb(160, 159, 159);
+$skillColor:#FF6666;
 
 $inputHeight:30px;
 $InputBorderColor:#E0D8D8;
@@ -18,7 +17,10 @@ $rightWidth:200px;
 
 $pinkColor:rgb(236, 105, 48);
 
-$maxWidth:960px;;
+$maxWidth:960px;
+$topbarHeight:42px;
+
+@import "bourbon/bourbon";
 
 *,*:after{
 	box-sizing: border-box;
@@ -34,6 +36,8 @@ $borderColor:rgb(221,221,221);
 }
 html{
 	min-width:$maxWidth;
+	overflow-y:scroll;
+	overflow-x:auto;
 }
 body{
 	margin:0;
@@ -48,264 +52,241 @@ a{
 md-toast{
 	position:fixed;
 }
-.topbar{
-
-	@media(max-width:$maxWidth){
-		width: $maxWidth;
-		position: relative;
-	}
-	background-color:$themeColor;
-	color:$themeTextColor;
-	position: fixed;
-	height:45px;
+.topbar-wrap{
+	text-align:center;
+	border-bottom:1px solid #ddd;
+	box-shadow:0 3px 2px -2px rgba(200,200,200,0.2);
+	border-top:solid 2px $skillColor;
+	position:fixed;
 	width:100%;
-	line-height:45px;
 	z-index: 10;
-	box-shadow:0 1px 2px 1px rgba(0,0,0,0.2);
-	box-shadow:0 -1px 6px 0px rgba(0, 0, 0, 0.2);
-	.brand{
+	background-color:$themeColor;
+	.topbar{
+		@media(max-width:$maxWidth){
+			width: $maxWidth;
+			position: relative;
+		}
+		width: $maxWidth;
+		margin:0 auto;
+		text-align: left;
+		color:$themeTextColor;
 		position: relative;
-		float: left;
-		display: inline-block;
-		font-size: 22px;
-		font-weight: bold;
-		padding: 0 10px;
-		width: 115px;
-		.skill{
+		height:$topbarHeight;
+		line-height:$topbarHeight;
+		.brand{
+			position: relative;
+			float: left;
+			display: inline-block;
+			font-size: 22px;
+			font-weight: bold;
+			margin-right: 10px;
 			color: $skillColor;
-		}
-		.scroll{
-			color: $scrollColor;
-		}
-	}
-	.swp{
-		float: left;
-		display: inline-block;
-		position:relative;
-		margin-left: 10px;
-		width:calc(100% - #{$brandWidth+$rightWidth + 7px});
-		height: inherit;
-		padding:0 10px;
-		text-align: center;
-		.main-form{
-			position:relative;
-			padding-top:7px;
-			@media(max-width:$maxWidth){
-				margin-left: 0;
+			&:hover{
+				color: darken($skillColor,10%);
 			}
-			margin-left: 68px;
-			height: inherit;
-			.main-input{
-				outline: none;
-				float: left;
-				display: inline-block;
-				width: 90%;
-				min-width: 200px;
-				max-width: 450px;
-				padding: 0 10px;
-				font-family: roboto-regular;
-				height: $inputHeight;
-				border:solid 1px $InputBorderColor;
-				border-radius:3px;
-				font-size: 15px;
-				&:focus{
-					border-color:rgb(81, 167, 232);
-					box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 2px 0px inset, rgba(81, 167, 232, 0.498039) 0px 0px 5px 0px;
+		}
+		.uac{
+			position:relative;
+			float: right;
+			text-align: right;
+			// width: $rightWidth;
+			line-height: 32px;
+			.uac-in{
+				padding:6px 10px 7px 0;
+				.login{
+					position:relative;
+					display: inline-block;
+					height: $inputHeight;
+					color: $pinkColor;
+					border:solid 1px;
+					padding:0 10px;
+					border-radius:3px;
+					height: 100%;
+					cursor: pointer;
+					outline: none;
+				}
+				.signup{
+					@extend .login;
+					color: rgb(24, 118, 232);
 				}
 			}
-		}
-	}
-	.uac{
-		position:relative;
-		float: left;
-		text-align: right;
-		width: $rightWidth;
-		line-height: 32px;
-		.uac-in{
-			padding:6px 10px 7px 0;
-			.login{
-				position:relative;
-				display: inline-block;
-				height: $inputHeight;
-				color: $pinkColor;
-				border:solid 1px;
-				padding:0 10px;
-				border-radius:3px;
-				height: 100%;
-				cursor: pointer;
-				outline: none;
+			a{
+				color:rgb(75,80,90);
+				padding:5px 10px;
 			}
-			.signup{
-				@extend .login;
-				color: rgb(24, 118, 232);
-			}
-		}
-		a{
-			color:rgb(75,80,90);
-			padding:5px 10px;
-		}
-		$borderColor:#dddddd;
-		$hoverBGColor:#f5f5f5;
-		.userSettingsWrap{
-			height:45px;
-			box-sizing:border-box;
-			// float:left;
-			display:inline-block;
-			position: relative;
-			border:solid 1px transparent;
-			border:none;
-			text-align:left;
-			font-size: 13px;
-			&.open,&:hover{
-				background:rgba(243, 243, 247,0.8);
-			}
-			&.open{
+			$borderColor:#dddddd;
+			$hoverBGColor:#f5f5f5;
+			.userSettingsWrap{
+				height:$topbarHeight;
+				box-sizing:border-box;
+				display:inline-block;
+				position: relative;
+				border:solid 1px transparent;
+				border:none;
+				text-align:left;
+				font-size: 13px;
+				&.open,&:hover{
+					background:rgba(239, 241, 245, 1);
+				}
+				&.open{
+					.set{
+						color: rgb(114,123, 141);
+					}
+					.userActions{
+						display: inline;
+						opacity: 1;
+						transform: scale(1);
+					}
+				}
 				.set{
-					color: rgb(114,123, 141);
+					display: block;
+					cursor: pointer;
+					&:after{
+						margin-left: 5px;
+						content: "\f0dd";
+						font-family: fontAwesome;
+						font-size: 1.5em;
+						line-height: 1em;
+					}
+				}
+				&.display-none{
+					.userActions{
+						display: none;
+					}
 				}
 				.userActions{
-					display: inline;
-				}
-			}
-			.set{
-				display: block;
-				cursor: pointer;
-				padding:8px 13px ;
-				&:after{
-					margin-left: 5px;
-					content: "\f0dd";
-					font-family: fontAwesome;
-					font-size: 1.5em;
-					line-height: 1em;
-				}
-			}
-			.userActions{
-				position: absolute;
-				float: right;
-				display: none;
-				right: 0;
-				top: 55px;
-				height: 0;
-				z-index: 5;
-				.arrow-up{
 					position: absolute;
-					z-index: 15;
-					top: -8px;
-					right: 9px;
-					width: 0;
-					height: 0;
-					border-left: 10px solid transparent;
-					border-right: 10px solid transparent;
-					border-bottom: 10px solid #fff;
-				}
-				.arrow-up-bg{
-					position: absolute;
-					z-index: 14;
-					top: -9px;
-					right: 9px;
-					width: 0;
-					height: 0;
-					border-left: 10px solid transparent;
-					border-right: 10px solid transparent;
-					border-bottom: 10px solid rgb(208, 208, 208);	
-				}
-				.userActionInner{
-					position: relative;
-					top: 0;
+					float: right;
+					// display: none;
 					right: 0;
-					width: 160px;
-					background-color: #fff;
-					border:solid 1px $borderColor;
-					border-radius: 3px;
-					padding: 5px 0;
-					box-shadow:0 1px 4px 0 rgba(0,0,0,0.15);
-					a{
-						color: #677184;
-						padding: 3px 20px;
-						height: 30px;
-						line-height: 22px;
-						display: block;
-						&:hover{
-							background-color: $hoverBGColor;
-							background-color:#EFF1F5;
-							color:#555555;
-						}
-						&:last-child{
-							border-bottom:none;
+					top: 55px;
+					height: 0;
+					z-index: 5;
+
+					transition: all 200ms cubic-bezier(0.24, 0.22, 0.015, 1.56), opacity 100ms linear;
+					opacity: 0;
+					transform: scale(0.5);
+					transform-origin: 80px 0;
+					.arrow-up{
+						position: absolute;
+						z-index: 15;
+						top: -8px;
+						right: 9px;
+						width: 0;
+						height: 0;
+						border-left: 10px solid transparent;
+						border-right: 10px solid transparent;
+						border-bottom: 10px solid #fff;
+					}
+					.arrow-up-bg{
+						position: absolute;
+						z-index: 14;
+						top: -9px;
+						right: 9px;
+						width: 0;
+						height: 0;
+						border-left: 10px solid transparent;
+						border-right: 10px solid transparent;
+						border-bottom: 10px solid #cacaca;
+					}
+					.userActionInner{
+						position: relative;
+						top: 0;
+						right: 0;
+						width: 160px;
+						background-color: #fff;
+						border:solid 1px $borderColor;
+						border-radius: 3px;
+						padding: 5px 0;
+						box-shadow:0 1px 4px 0 rgba(0,0,0,0.15);
+						a{
+							color: #677184;
+							padding: 3px 20px;
+							height: 30px;
+							line-height: 22px;
+							display: block;
+							&:hover{
+								background-color: $hoverBGColor;
+								background-color:#EFF1F5;
+								color:#555555;
+							}
+							&:last-child{
+								border-bottom:none;
+							}
 						}
 					}
 				}
 			}
-		}
-		.button{
-			-webkit-appearance: none;
-			-webkit-user-select: none;
-			align-items: flex-start;
-			background-attachment: scroll;
-			background-clip: border-box;
-			background-color: rgb(8, 198, 91);
-			background-image: none;
-			background-origin: padding-box;
-			background-size: auto;
-			border-bottom-color: rgb(255, 255, 255);
-			border-bottom-left-radius: 3px;
-			border-bottom-right-radius: 3px;
-			border-bottom-style: none;
-			border-bottom-width: 0px;
-			border-image-outset: 0px;
-			border-image-repeat: stretch;
-			border-image-slice: 100%;
-			border-image-source: none;
-			border-image-width: 1;
-			border-left-color: rgb(255, 255, 255);
-			border-left-style: none;
-			border-left-width: 0px;
-			border-right-color: rgb(255, 255, 255);
-			border-right-style: none;
-			border-right-width: 0px;
-			border-top-color: rgb(255, 255, 255);
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px;
-			border-top-style: none;
-			border-top-width: 0px;
-			box-sizing: border-box;
-			color: rgb(255, 255, 255);
-			cursor: pointer;
-			display: inline-block;
-			font-family: Roboto, sans-serif;
-			font-size: 14px;
-			font-style: normal;
-			font-variant: normal;
-			font-weight: 300;
-			height: 36px;
-			letter-spacing: normal;
-			line-height: normal;
-			margin-bottom: 0px;
-			margin-left: 4px;
-			margin-right: 0px;
-			margin-top: 0px;
-			outline-color: rgb(255, 255, 255);
-			outline-style: none;
-			outline-width: 0px;
-			padding-bottom: 10px;
-			padding-left: 24px;
-			padding-right: 24px;
-			padding-top: 10px;
-			position: relative;
-			text-align: center;
-			text-indent: 0px;
-			text-rendering: auto;
-			text-shadow: none;
-			text-transform: uppercase;
-			transition-delay: 0s, 0s, 0s;
-			transition-duration: 0.18s, 0.18s, 0.18s;
-			transition-property: box-shadow, background, color;
-			transition-timing-function: ease-out, ease-out, ease-out;
-			white-space: nowrap;
-			width: 124.8125px;
-			word-spacing: 0px;
-			writing-mode: lr-tb;
-			-webkit-writing-mode: horizontal-tb;
+			.button{
+				-webkit-appearance: none;
+				-webkit-user-select: none;
+				align-items: flex-start;
+				background-attachment: scroll;
+				background-clip: border-box;
+				background-color: rgb(8, 198, 91);
+				background-image: none;
+				background-origin: padding-box;
+				background-size: auto;
+				border-bottom-color: rgb(255, 255, 255);
+				border-bottom-left-radius: 3px;
+				border-bottom-right-radius: 3px;
+				border-bottom-style: none;
+				border-bottom-width: 0px;
+				border-image-outset: 0px;
+				border-image-repeat: stretch;
+				border-image-slice: 100%;
+				border-image-source: none;
+				border-image-width: 1;
+				border-left-color: rgb(255, 255, 255);
+				border-left-style: none;
+				border-left-width: 0px;
+				border-right-color: rgb(255, 255, 255);
+				border-right-style: none;
+				border-right-width: 0px;
+				border-top-color: rgb(255, 255, 255);
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+				border-top-style: none;
+				border-top-width: 0px;
+				box-sizing: border-box;
+				color: rgb(255, 255, 255);
+				cursor: pointer;
+				display: inline-block;
+				font-family: Roboto, sans-serif;
+				font-size: 14px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 300;
+				height: 36px;
+				letter-spacing: normal;
+				line-height: normal;
+				margin-bottom: 0px;
+				margin-left: 4px;
+				margin-right: 0px;
+				margin-top: 0px;
+				outline-color: rgb(255, 255, 255);
+				outline-style: none;
+				outline-width: 0px;
+				padding-bottom: 10px;
+				padding-left: 24px;
+				padding-right: 24px;
+				padding-top: 10px;
+				position: relative;
+				text-align: center;
+				text-indent: 0px;
+				text-rendering: auto;
+				text-shadow: none;
+				text-transform: uppercase;
+				transition-delay: 0s, 0s, 0s;
+				transition-duration: 0.18s, 0.18s, 0.18s;
+				transition-property: box-shadow, background, color;
+				transition-timing-function: ease-out, ease-out, ease-out;
+				white-space: nowrap;
+				width: 124.8125px;
+				word-spacing: 0px;
+				writing-mode: lr-tb;
+				-webkit-writing-mode: horizontal-tb;
+			}
 		}
 	}
 }
@@ -446,7 +427,7 @@ $niceBG:#fdfdfd;
 	}
 }
 .extra{
-	margin:20px 0 10px 0;
+	margin:10px 0 10px 0;
 	$paddingF:20px;
 	.material{
 		overflow: hidden;
@@ -790,7 +771,7 @@ $contactColor:#4DBFD9;
 				border-top:solid 5px $contactColor;
 				border-radius: 3px;
 				padding:7px 15px;
-				box-shadow:0 2px 1px 0px rgba(0, 0, 0, 0.1);
+				box-shadow:0 1px 1px 0px rgba(0, 0, 0, 0.1);
 				color: rgb(64, 64, 64);
 				.title{
 					color: #333;
@@ -847,44 +828,20 @@ $contactColor:#4DBFD9;
 		&:last-child{
 			border-bottom: none;
 		}
-		// &._level{
-		// 	border-left:solid 2px transparent;
-		// }
-		// &._level1{
-		// 	border-left:solid #2b7489;
-		// }
-		// &._level2{
-		// 	border-left:solid 2px #00B4AB;
-		// }
-		// &._level3{
-		// 	border-left:solid 2px #563d7c;
-		// }
-		// &._level4{
-		// 	border-left:solid 2px #f1e05a;
-		// }
-		// &._level5{
-		// 	border-left:solid 2px #e44b23;
-		// }
 		&:nth-child(5n+2){
 			border-left-color:#f1e05a;
-			// border-left-color: #FFB739;
 		}
 		&:nth-child(5n+3){
 			border-left-color:#49DAFC;
-			// border-left-color: #FA6121;
 		}
 		&:nth-child(5n+4){
 			border-left-color:#00B4AB;
-			// border-left-color: #DBE8F9;
 		}
 		&:nth-child(5n){
-			border-left-color:#064f83;
-			// border-left-color: #466289;
+			border-left-color:#207CBD;
 		}
 		&:nth-child(5n+1){
-			// border-left-color:#563d7c;
-			border-left-color:#e44b23;
-			// border-left-color: #A0AEC1;
+			border-left-color:#E15084;
 		}
 		&:first-child{
 			border-left: solid 1px $borderColor;
@@ -910,4 +867,43 @@ input{
 }
 .form-input{
 	margin-bottom:15px;
+}
+$eventHeight:40px;
+.techkriti-events{
+	position:relative;
+	width:100%;
+	height:$eventHeight;
+	line-height:$eventHeight;
+	// padding:0 10px;
+	// background-color:#fbfbfb;
+	border:solid 1px #f0f0f0;
+	color:#333;
+	.event{
+		position: relative;
+		margin:0 29px;
+		height: $eventHeight;
+		display: inline-block;
+		border-bottom:solid 0 transparent;
+		@include transition(all 200ms ease);
+		&:last-child:after{
+			background-color: transparent;
+		}
+		&:after{
+			content: ' ';
+			width: 1px;
+			height:  $eventHeight - 20px;
+			position:absolute;
+			background-color: rgba(80, 80, 80, 0.44);	
+			display: inline-block;
+			right: -27px;
+			top:10px;
+		}
+		&:hover{
+			height: $eventHeight - 1px;
+			// border-bottom:solid 3px darken(#4374E0,15%);
+			// border-bottom:solid 3px #FF6666;
+			color: #4374E0;
+			border-bottom:solid 2px;
+		}
+	}
 }

@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<link rel="icon" type="image/png" href="http://techkriti.org/img/favicon.ico">
-	<title>Techkriti explore</title>
+	<title>Explore | Techkriti</title>
 	<meta name="description" content="Explore Techkriti">
 	<meta name="fragment" content="!">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>components/angular-material/angular-material.min.css">
@@ -13,30 +13,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<base href="<?php echo base_url() ?>" />
 </head>
 <body>
-	<div class="topbar">
-		<a href="<?php echo base_url() ?>" class="brand"><span class="skill">Explore</span><span class="scroll"></span></a>
-		<div class="swp">
-			<form action="search/" class="main-form" autocomplete="off">
-				<input class="main-input" type="text" name="q" placeholder="Search for people or some topic">
-			</form>
-		</div>
-		<div ng-if="!loggedIn" ng-cloak class="uac">
-			<div class="uac-in">
-				<span ng-if="!loggedIn" ng-click="signup($event)" class="signup">Sign Up</span>
-				<span ng-if="!loggedIn" ng-click="login($event)" class="login">Login</span>
+	<div class="topbar-wrap">
+		<div class="topbar">
+			<a href="<?php echo base_url() ?>" class="brand">Explore</a>
+			<div ng-if="!loggedIn" ng-cloak class="uac">
+				<div class="uac-in">
+					<span ng-if="!loggedIn" ng-click="signup($event)" class="signup">Sign Up</span>
+					<span ng-if="!loggedIn" ng-click="login($event)" class="login">Login</span>
+				</div>
 			</div>
-		</div>
-		<div ng-if="loggedIn" ng-cloak class="uac">
-			<div ng-show="login" class="userSettingsWrap saharan-dropdown">
-				<a href="#" class="set userloggedin">{{userinfo.name | first_name}}</a>
-				<div class="userActions">
-					<div class="arrow-up"></div>
-					<div class="arrow-up-bg"></div>
-					<div class="userActionInner">
-						<a href="users/{{userinfo.username}}">Your profile</a>
-						<a href="settings/topics">Topics</a>
-						<a href="settings/profile">Settings</a>
-						<a href="./" ng-click="logout()">Log out</a>
+			<div ng-if="loggedIn" ng-cloak class="uac">
+				<div ng-show="login" class="userSettingsWrap saharan-dropdown display-none">
+					<a href="#" class="set userloggedin">{{userinfo.name | first_name}}</a>
+					<div class="userActions">
+						<div class="arrow-up"></div>
+						<div class="arrow-up-bg"></div>
+						<div class="userActionInner">
+							<a href="users/{{userinfo.username}}">Your profile</a>
+							<a href="settings/topics">Topics</a>
+							<a href="settings/profile">Settings</a>
+							<a href="./" ng-click="logout()">Log out</a>
+						</div>
 					</div>
 				</div>
 			</div>
